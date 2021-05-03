@@ -1,0 +1,607 @@
+/*
+	Copyright MIT © <2015> <Nathawut Niemsuwan @ Kidkarnmai Studio co.,ltd.>
+	kidkarnmaiCreateJs.kkm_height(mc,_h)
+    kidkarnmaiCreateJs.kkm_width(mc,_w)
+    kidkarnmaiCreateJs.checkmedia() -> obj["col"],obj["row"],obj["orientation"],obj["scale"],obj["ratio"]
+    kidkarnmaiCreateJs.addImage(mc,_src,_w,_h,_callback)
+    kidkarnmaiCreateJs.addDom(mc,_id,_display,_removecontent)
+    kidkarnmaiCreateJs.addVdo(mc,_src,_w,_h,_callback)
+    kidkarnmaiCreateJs.addYoutube(mc,_code,_w,_h,_id,_display)
+	kidkarnmaiCreateJs.setOverideDom();
+	kidkarnmaiCreateJs.playSound(path,_callback,_loop,_auto)
+	kidkarnmaiCreateJs.hitTest(mc1,mc2)
+	kidkarnmaiCreateJs.setPos(mc,_width,_height,_pos)
+*/
+
+(function (window) {
+	window.getDevicePixelRatio = function () {
+		var ratio = 1;
+		// To account for zoom, change to use deviceXDPI instead of systemXDPI
+		if (window.screen.systemXDPI !== undefined && window.screen.logicalXDPI !== undefined && window.screen.systemXDPI > window.screen.logicalXDPI) {
+			// Only allow for values > 1
+			ratio = window.screen.systemXDPI / window.screen.logicalXDPI;
+		}
+		else if (window.devicePixelRatio !== undefined) {
+			ratio = window.devicePixelRatio;
+		}
+		return ratio;
+	};
+})(this);
+
+
+$(document).ready(function(){
+		kidkarnmaiCreateJs.setOverideDom();
+});
+
+
+var kidkarnmaiCreateJs = new function() {
+
+	"use strict";
+
+	 if ( ! window.console ) console = { log: function(){} };
+
+
+    this.kkm_height = function(mc,_h,_ori_h)
+	{
+		"use strict";
+        _ori_h = _ori_h || mc.getBounds()["height"]
+        var toSY;
+        var nh = _ori_h
+        toSY = _h/nh
+        mc.scaleY = toSY
+    }
+
+    this.kkm_width = function(mc,_w,_ori_w)
+	{
+		"use strict";
+        _ori_w = _ori_w || mc.getBounds()["width"]
+        var toSX;
+        var nw = _ori_w
+        toSX = _w/nw
+        mc.scaleX = toSX
+    }
+
+    this.checkmedia = function(){
+		"use strict";
+        var obj = new Object();
+        var row = 6;
+        var col = 4;
+        var orientation = "";
+		var scale = 1;
+		var ratio = 1;
+		row = Math.round(window.innerHeight/160);
+		/*if(row<2) row=2
+		else if(row>8) row=8*/
+		col = Math.round(window.innerWidth/160);
+		/*if(col<2) col=2
+		else if(col>8) col=8*/
+        if(window.innerWidth>=window.innerHeight){
+            orientation = "landscape"
+			scale = row/4
+			scale = (window.innerWidth/640);
+        }
+        else{
+            orientation = "portrait"
+			scale = col/4
+			scale = (window.innerWidth/640);
+        }
+		if(window.devicePixelRatio){
+			ratio = window.devicePixelRatio
+		}
+		else{
+			ratio = 1
+		}
+		kidkarnmaiCreateJs.setOverideDom();
+
+        obj["row"] = row
+        obj["col"] = col
+        obj["orientation"] = orientation
+        obj["scale"] = scale
+        obj["ratio"] = ratio
+
+		// topScroll()
+        return obj;
+    }
+
+    this.addVdo = function (mc,_src,_w,_h,_callback){
+        _callback = _callback || null
+        var queue = new createjs.LoadQueue(false);
+        queue.loadManifest([{id: "myBitmapId", src:_src}]);
+        queue.on("complete", function() {
+            var cjsVideo = new createjs.Bitmap(queue.getResult("myBitmapId"));
+            kidkarnmaiCreateJs.kkm_width(cjsVideo,_w,cjsVideo.image.videoWidth)
+            kidkarnmaiCreateJs.kkm_height(cjsVideo,_h,cjsVideo.image.videoHeight)
+            mc.addChild(cjsVideo);
+            if(_callback!=null){
+                _callback()
+            }
+        }, this);
+    }
+
+    this.addImage = function (mc,_src,_w,_h,_callback){
+		_callback = _callback || null
+        var queue = new createjs.LoadQueue(false);
+        queue.loadManifest([{id: "myBitmapId", src:_src}]);
+        queue.on("complete", function() {
+            var cjsImg = new createjs.Bitmap(queue.getResult("myBitmapId"));
+            kidkarnmaiCreateJs.kkm_width(cjsImg,_w,cjsImg.image.width)
+            kidkarnmaiCreateJs.kkm_height(cjsImg,_h,cjsImg.image.height)
+            mc.addChild(cjsImg);
+            if(_callback!=null){
+                _callback()
+            }
+        }, this);
+    }
+    this.addDom = function (mc,_id,_display,_removecontent){
+        _display = _display || "false";
+        _removecontent = _removecontent || "false";
+		var dm = new createjs.DOMElement(_id);
+		if(_removecontent=='true'){
+			while(mc.numChildren){
+				mc.removeChildAt(0);
+			}
+		}
+        mc.addChild(dm);
+		 if(_display=="false"){
+           $("#"+_id).hide();
+        }
+		else
+		{
+			 $("#"+_id).show(1);
+		}
+	}
+    this.addYoutube = function (mc,_code,_w,_h,_id,_display){
+        _display = _display || "true";
+        var html = document.createElement('iframe');
+        html.width = _w;
+        html.height = _h;
+        html.src = "https://www.youtube.com/embed/"+_code;
+        html.id = _id
+        html.setAttribute("frameborder","0");
+
+        document.body.appendChild(html);
+        var yt = new createjs.DOMElement(html);
+        mc.addChild(yt);
+        if(_display=="false"){
+           $("#"+_id).hide();
+        }
+    }
+	this.addImageElement = function(mc,_src,_w,_h,_id,_display){
+        _display = _display || "true";
+        $("#"+_id).attr('src',_src);
+        var dom = new createjs.DOMElement(_id);
+        mc.addChild(dom);
+         if(_display=="false"){
+           $("#"+_id).hide();
+        }
+		else
+		{
+			 $("#"+_id).show(1);
+		}
+	}
+	this.hitTest = function(mc1,mc2){
+		var posX = (mc2.x-mc1.x)+(mc2.getBounds()['width']/2)
+		var posY = (mc2.y-mc1.y)+(mc2.getBounds()['height']/2)
+		return mc1.hitTest(posX,posY);
+	}
+	this.setOverideDom = function(){
+		if (window.devicePixelRatio) {
+			var DOMElement = function(htmlElement) {
+				this.DOMElement_constructor(htmlElement);
+				this.globalScale = window.devicePixelRatio;
+			};
+			var p = createjs.extend(DOMElement, createjs.DOMElement);
+			p._handleDrawEnd = function(evt) {
+			var o = this.htmlElement;
+			if (!o) { return; }
+			var style = o.style;
+
+			var props = this.getConcatenatedDisplayProps(this._props), mtx = props.matrix;
+
+			var visibility = props.visible ? "visible" : "hidden";
+			if (visibility != style.visibility) { style.visibility = visibility; }
+			if (!props.visible) { return; }
+
+			var oldProps = this._oldProps, oldMtx = oldProps&&oldProps.matrix;
+			var n = 10000; // precision
+
+			if (!oldMtx || !oldMtx.equals(mtx)) {
+				var str = "matrix(" + (mtx.a*n|0)/n/ this.globalScale +","+ (mtx.b*n|0)/n +","+ (mtx.c*n|0)/n +","+ (mtx.d*n|0)/n/ this.globalScale +","+ (mtx.tx+0.5|0)/ this.globalScale;
+				style.transform = style.WebkitTransform = style.OTransform = style.msTransform = str +","+ (mtx.ty+0.5|0)/ this.globalScale +")";
+				style.MozTransform = str +"px,"+ (mtx.ty+0.5|0)/ this.globalScale +"px)";
+				if (!oldProps) { oldProps = this._oldProps = new createjs.DisplayProps(true, NaN); }
+				oldProps.matrix.copy(mtx);
+			}
+
+			if (oldProps.alpha != props.alpha) {
+				style.opacity = ""+(props.alpha*n|0)/n;
+				oldProps.alpha = props.alpha;
+			}
+			};
+			createjs.DOMElement = createjs.promote(DOMElement, "DOMElement");
+		}
+	}
+	this.playSound = function(path,_callback,_loop,_auto) {
+		_callback = _callback || null
+		_loop = _loop || 'false'
+		_auto = _auto || 'false'
+		 createjs.Sound.alternateExtensions = ["ogg"];
+		createjs.Sound.registerSound({id:"soundId", src:path});
+		createjs.Sound.addEventListener("fileload", handleFileLoad);
+		function handleFileLoad(event) {
+			var instance
+			if(_loop=="false"){
+				instance = createjs.Sound.play("soundId");
+			}
+			else{
+				instance = createjs.Sound.play("soundId",{loop:-1});
+			}
+			if(_auto=="false"){
+				instance.stop();
+			}
+			if(_callback!=null){
+                _callback(instance)
+            }
+		}
+	}
+	this.setPos = function(mc,_width,_height,_pos){
+		if(_pos=='center'){
+				mc.x = (_width/2)-(mc.getBounds()['width']/2);
+				mc.y = (_height/2)-(mc.getBounds()['height']/2);
+		}
+		else if(_pos=='top'){
+				mc.x = (_width/2)-(mc.getBounds()['width']/2);
+				mc.y = 0
+		}
+		else if(_pos=='bottom'){
+				mc.x = (_width/2)-(mc.getBounds()['width']/2);
+				mc.y = (_height)-(mc.getBounds()['height']);
+		}
+		else if(_pos=='left'){
+				mc.x = 0
+				mc.y = (_height/2)-(mc.getBounds()['height']/2);
+		}
+		else if(_pos=='right'){
+				mc.x = (_width)-(mc.getBounds()['width']);
+				mc.y = (_height/2)-(mc.getBounds()['height']/2);
+		}
+		else if(_pos=='topleft'){
+				mc.x = 0
+				mc.y = 0
+		}
+		else if(_pos=='topright'){
+				mc.x = (_width)-(mc.getBounds()['width']);
+				mc.y = 0
+		}
+		else if(_pos=='bottomleft'){
+				mc.x = 0
+				mc.y = (_height)-(mc.getBounds()['height']);
+		}
+		else if(_pos=='bottomright'){
+				mc.x = (_width)-(mc.getBounds()['width']);
+				mc.y = (_height)-(mc.getBounds()['height']);
+		}
+	}
+}
+
+var kkmFlow = new function(){
+	var numflow = 0;
+	this.createjs = {};
+	this.createjsArray = [];
+	var load_template = false;
+	var now_type = "";
+
+	this.startFlow = function(){
+		flow()
+	}
+
+	function flow(){
+		numflow++;
+		trace('flow : '+numflow);
+		if(numflow==1){
+			loadAsset('bg');
+		}
+		else if(numflow==2){
+			loadAsset('menu');
+		}
+		else if(numflow==3){
+			loadAsset('footer');
+		}
+		else if(numflow==4){
+			loadAsset('popup');
+		}
+		else if(numflow>=5){
+			load_template = true;
+			loadAsset('content');
+		}
+	}
+
+	function loadAsset(st){
+		now_type = st
+		kkmFlow.createjs[st+"_init"]();
+		kkmFlow.showWait();
+	}
+
+	this.loadAssetCom = function(id){
+		if(!load_template){
+			flow()
+		}
+		if(id=='content' && load_template){
+			kkmFlow.hideWait();
+		}
+	}
+
+	this.loadAssetPercent = function(num){
+		var percent = 0;
+		if(numflow<=5){
+			percent =  Math.round(Number(Math.round(100/5)/100)  * num)+Number(Math.round(100/5)*(numflow-1));
+		}
+		else
+		{
+			percent = num;
+		}
+		$("#txtPreload").text(percent+' %');
+	}
+
+	this.showWait = function(percent){
+		var percent = percent || null;
+		$("#wait").show();
+		// trace('showWait : '+percent)
+		if(percent!=null){
+			$("#txtPreload").html('Loading : '+percent+'%');
+		}else{
+			$("#txtPreload").html('');
+		}
+	}
+
+	this.hideWait = function(){
+		$("#wait").hide();
+		$("#txtPreload").text('');
+	}
+}
+
+/*
+	Copyright MIT © <2013> <Nathawut Niemsuwan @ Kidkarnmai Studio co.,ltd.>
+
+	kidkarnmaiDatetime.getToday();
+	kidkarnmaiDatetime.getTimeNow(position);
+	kidkarnmaiDatetime.countTimer(callback);
+	kidkarnmaiDatetime.stopTimer();
+
+*/
+var kidkarnmaiDatetime = new function() {
+
+	"use strict";
+
+	 if ( ! window.console ) console = { log: function(){} };
+
+
+	var _startDate;
+	var _ti;
+
+	this.getToday = function()
+	{
+		"use strict";
+
+		var today_date = new Date();
+		var DateString = today_date.getDate() < 10 ? "0" + today_date.getDate():"" + today_date.getDate();
+		var MonthString=(today_date.getMonth()+1)<10?"0"+(today_date.getMonth()+1):""+(today_date.getMonth()+1);
+		var date_str = (DateString+"."+MonthString+"."+today_date.getFullYear());
+		return date_str;
+	}
+
+	this.getTimeNow = function(position)
+	{
+		"use strict";
+
+		position = position || 1;
+		var now = new Date();
+		var date_str;
+		var hString = now.getHours() < 10 ? "0" + now.getHours():"" + now.getHours();
+		date_str = hString;
+		if (position >= 2)
+		{
+			var mString = now.getMinutes() < 10 ? "0" + now.getMinutes():"" + now.getMinutes();
+			date_str +=  "." + mString;
+		}
+		if (position >= 3)
+		{
+			var sString = now.getSeconds() < 10 ? "0" + now.getSeconds():"" + now.getSeconds();
+			date_str +=  "." + sString;
+		}
+		return date_str;
+	}
+
+	this.countTimer = function(callback)
+	{
+		"use strict";
+
+		var da = new Date();
+		_startDate = da;
+
+		_ti = setInterval(function(){onCount()},1000);
+
+		function onCount()
+		{
+			var da = new Date();
+				// console.log('_startDate : '+_startDate+' | '+da)
+			var daysApart = getDaysBetweenDatesSec(_startDate,da);
+			callback(daysApart);
+		}
+	}
+
+	this.stopTimer = function()
+	{
+		"use strict";
+
+		clearInterval(_ti);
+	}
+
+	function getDaysBetweenDates(date1,date2)
+	{
+		"use strict";
+
+		date1 = date1 || new Date();
+		date2 = date2 || new Date();
+		var oneDay = 1000 * 60 * 60 * 24;
+		var oneSec = 1000;
+		var date1Milliseconds = date1.getTime();
+		var date2Milliseconds = date2.getTime();
+		var differenceMilliseconds = Math.abs(date1Milliseconds - date2Milliseconds);
+		return Math.round(differenceMilliseconds/oneSec);
+	}
+
+	function getDaysBetweenDatesSec(date1,date2)
+	{
+		"use strict";
+
+		date1 = date1 || new Date();
+		date2 = date2 || new Date();
+
+		var date1Milliseconds = date1.getTime();
+		var date2Milliseconds = date2.getTime();
+		var oneSec = 1000;
+			// console.log('> : '+date1Milliseconds+' | '+date2Milliseconds)
+		var differenceMilliseconds = Math.abs(date1Milliseconds - date2Milliseconds);
+		return Math.round(differenceMilliseconds/oneSec);
+	}
+}
+
+
+var kidkarnmaiNumber = new function(){
+	
+	
+	if ( ! window.console ) console = { log: function(){} };
+	
+   this.randomNumber = function(max,min)
+   {
+	   "use strict";
+	   max = max || 10;
+	   min = min || 0;
+	   var randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+	   return (randomNum);
+   }
+   
+   this.formatNumber = function(number, maxDecimals, forceDecimals,siStyle)
+   {
+	   "use strict";
+	   
+	   number = number || 0;
+	   maxDecimals = maxDecimals || 2;
+	   forceDecimals = forceDecimals || false;
+	   siStyle = siStyle || true; 
+	   
+	   var i = 0,inc = Math.pow(10,maxDecimals),str = String(Math.round(inc * Number(number)) / inc);
+	   var hasSep = str.indexOf(".") == -1,sep = hasSep ? str.length:str.indexOf(".");
+	   var ret = (hasSep && !forceDecimals ? "" : (siStyle ? "." : ",")) + str.substr(sep+1);
+	   if (forceDecimals)
+	   {
+		   for (var j = 0; j <= maxDecimals - (str.length - (hasSep ? sep-1 : sep)); j++)
+		   {
+			   ret +=  "0";
+		   }
+	   }
+	   while (i + 3 < (str.substr(0, 1) == "-" ? sep-1 : sep))
+	   {
+		   ret = (siStyle ? "," : ".") + str.substr(sep - (i += 3), 3) + ret;
+	   }
+	   return str.substr(0, sep - i) + ret;
+   }
+
+   this.randomNoLoop = function(max,min,num)
+   {
+	   "use strict";
+	   max = max || 10;
+	   min = min || 1;
+	   num = num || 10;
+	   
+	   var arr = [];
+	   while (arr.length<num)
+	   {
+		   var bol = true;
+		   var numS;
+		   while (bol)
+		   {
+			   bol = false;
+			   numS = randomNumber(max,min);
+			   for (var i=0; i<arr.length; i++)
+			   {
+				   if (arr[i] == numS)
+				   {
+					   bol = true;
+				   }
+			   }
+		   }
+		   arr.push(numS);
+	   }
+	   return (arr);
+   }
+
+   this.timeToString = function(time_to_convert)
+   {
+	   "use strict"; 
+	   
+	   var elapsed_hours;
+	   var remaining;
+	   var elapsed_minutes;
+	   var elapsed_seconds;
+	   var elapsed_fs;
+	   var hours;
+	   var minutes;
+	   var seconds;
+	   var hundredths;
+	   elapsed_hours = Math.floor(time_to_convert / 3600000);
+	   remaining = time_to_convert - (elapsed_hours * 3600000);
+	   elapsed_minutes = Math.floor(remaining / 60000);
+	   remaining = remaining - (elapsed_minutes * 60000);
+	   elapsed_seconds = Math.floor(remaining / 1000);
+	   remaining = remaining - (elapsed_seconds * 1000);
+	   elapsed_fs = Math.floor(remaining);
+	   if (elapsed_hours < 10)
+	   {
+		   hours = "0" + elapsed_hours.toString();
+	   }
+	   else
+	   {
+		   hours = elapsed_hours.toString();
+	   }
+	   if (elapsed_minutes < 10)
+	   {
+		   minutes = "0" + elapsed_minutes.toString();
+	   }
+	   else
+	   {
+		   minutes = elapsed_minutes.toString();
+	   }
+	   if (elapsed_seconds < 10)
+	   {
+		   seconds = "0" + elapsed_seconds.toString();
+	   }
+	   else
+	   {
+		   seconds = elapsed_seconds.toString();
+	   }
+	   if (elapsed_fs < 10)
+	   {
+		   hundredths = "0" + elapsed_fs.toString();
+	   }
+	   else if (elapsed_fs < 100)
+	   {
+		   hundredths = "0" + elapsed_fs.toString();
+	   }
+	   else
+	   {
+		   hundredths = elapsed_fs.toString();
+	   }
+	   return minutes + ":" + seconds + ":" + hundredths;
+   }	
+   
+   function randomNumber(max,min)
+   {
+	   "use strict";
+	   max = max || 10;
+	   min = min || 0;
+	   var randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+	   return (randomNum);
+   }
+}

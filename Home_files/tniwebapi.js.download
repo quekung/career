@@ -1,0 +1,161 @@
+if (!window.location.origin) {
+    window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
+}
+
+var tniWeb = {
+    cLng: "th",
+    /*sitefinityURL: "//dev.tni-inno.com",
+    sitefinityApiURL: "//dev.tni-inno.com/api/web-api",
+    ApiURL: "//api.tni-inno.com",*/
+    sitefinityURL: "http://localhost:60876",
+    sitefinityApiURL: "http://localhost:60876/api/web-api",
+    ApiURL: "http://localhost:44306",
+
+    ApiPayment: "//payment.tni-inno.com",
+    
+
+    client_id: "webapiApp",
+    client_secret: "(k9qxZNdG73wE{Kn",
+    username: "guestwebapi@thanachartinsurance.co.th",
+    password: "X^GDj.=4#8%C6tuW",
+    accessToken: "",
+    refreshToken: "",
+    getToken: function (apiCallback) {  
+        
+        if (false) {
+            var me = this;
+            if (me.accessToken == "") {
+                var tokenEndPoint = this.sitefinityURL + '/Sitefinity/Authenticate/OpenID/connect/token';
+                //Call that gets the access and refresh token
+                $.ajax({
+                    url: tokenEndPoint,
+                    data: {
+                        username: this.username,
+                        password: this.password,
+                        grant_type: 'password',
+                        scope: 'openid offline_access',
+                        client_id: this.client_id,
+                        client_secret: this.client_secret
+                    },
+                    method: 'POST',
+                    success: function (data) {
+                        localStorage.setItem("token", data.access_token);
+                        localStorage.setItem("refreshToken", data.refresh_token);
+
+                        me.accessToken = data.access_token;
+                        me.refreshToken = data.refresh_token;
+
+                        apiCallback();
+                    },
+                    error: function (err) {
+                        tniWeb.console(err.responseText);
+                    }
+                });
+            } else {
+                apiCallback();
+            }
+        } else {
+            apiCallback();
+        }
+    },
+    getAccessTokenFromRefreshToken: function (apiCallback) {
+        var tokenEndPoint = this.sitefinityURL + '/Sitefinity/Authenticate/OpenID/connect/token';
+        $.ajax({
+            url: tokenEndPoint,
+            data: {
+                refresh_token: refreshToken,
+                grant_type: 'refresh_token',
+                client_id: this.client_id,
+                client_secret: this.client_secret
+            },
+            method: 'POST',
+            success: function (data) {
+                $('#token').text(data.access_token);
+                $('#refreshToken').text(data.refresh_token);
+                accessToken = data.access_token;
+                refreshToken = data.refresh_token;
+            },
+            error: function (err) {
+                alert(err.responseText);
+            }
+        })
+    },
+    getResultData: function (apiUrl, status, data) {
+        var resultData = {
+            result: false,
+            apiUrl: apiUrl,
+            message: "",
+            status: status,
+            data: {}
+        }
+
+        if (status == 200) {
+            resultData.result = true;
+            resultData.message = "success";
+            resultData.data = data;
+        } else {
+            resultData.result = false;
+            resultData.message = "error";
+        }
+
+        return resultData;
+    },
+    getSitefinityImage: function (parentAPIUrl, parentId, imageField, defaultImgPath, apiCallback) {
+        var apiUrl = parentAPIUrl + "(" + parentId + ")/" + imageField;
+        $.ajax({
+            url: apiUrl,
+            method: 'GET',
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+            },
+            success: function (data, textStatus, xhr) {
+                var imagePath = defaultImgPath;
+                if (xhr.status == 200 && data.value != null && data.value.length > 0 && data.value[0].Url != null) {
+                    imagePath = data.value[0].Url;
+                    if (imagePath == null || imagePath == '') {
+                        imagePath = defaultImgPath;
+                    }
+                }
+                apiCallback(parentId, imagePath);
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        })
+    },
+    debug: false,
+    console: function (msg) {
+        if (this.debug) {
+            console.log(msg);
+        }
+    }
+}
+
+var tniServerErrorMsg = {
+    "200": {
+        th: "sucess",
+        en: "sucess"
+    },
+    "400": {
+        th: "ระบบไม่พร้อมใช้งานในขณะนี้",
+        en: "Service is not available."
+    },
+    "403": {
+        th: "ระบบไม่พร้อมใช้งานในขณะนี้",
+        en: "Service is not available."
+    },
+    "404": {
+        th: "ระบบไม่พร้อมใช้งานในขณะนี้",
+        en: "Service is not available."
+    },
+    "500": {
+        th: "ระบบไม่พร้อมใช้งานในขณะนี้",
+        en: "Service is not available."
+    },
+    "501": {
+        th: "ระบบไม่พร้อมใช้งานในขณะนี้",
+        en: "Service is not available."
+    }
+}

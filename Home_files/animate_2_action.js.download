@@ -1,0 +1,26 @@
+var animate_2Action = new function() {
+
+    var _this = this;
+    var _root, stage, lib, $scope;
+    var funcObj = {};
+    this._root;
+
+    this.setupStart = function(root, _stage, _lib, _$scope) {
+        _root = root;
+        stage = _stage;
+        lib = _lib;
+        $scope = _$scope;
+        this._root = root;
+        // animate_2Action.startPlay();
+    }
+
+    this.startPlay = function() {
+        // _root.mcContent.gotoAndPlay(2)
+    }
+
+
+    this.removeAllEvent = function() {
+
+    }
+
+}

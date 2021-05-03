@@ -1,0 +1,255 @@
+@font-face {
+    font-family: 'Conv_PSL Kanda Extra Regular';
+    src: url('pslkanda-webfont.eot');
+    src: local('☺'), url('pslkanda-webfont.woff') format('woff'), url('pslkanda-webfont.ttf') format('truetype'), url('pslkanda-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Conv_Kanda Extra Regular Italic';
+    src: url('pslkanda-webfont.eot');
+    src: local('☺'), url('pslkanda-webfont.woff') format('woff'), url('pslkanda-webfont.ttf') format('truetype'), url('pslkanda-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Conv_PSL Kanda Regular';
+    src: url('pslkanda-webfont.eot');
+    src: local('☺'), url('pslkanda-webfont.woff') format('woff'), url('pslkanda-webfont.ttf') format('truetype'), url('pslkanda-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Conv_PSL Kanda Regular Italic';
+    src: url('pslkanda-webfont.eot');
+    src: local('☺'), url('pslkanda-webfont.woff') format('woff'), url('pslkanda-webfont.ttf') format('truetype'), url('pslkanda-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Conv_PSL Kanda Bold';
+    src: url('pslkandabold-webfont.eot');
+    src: local('☺'), url('pslkandabold-webfont.woff') format('woff'), url('pslkandabold-webfont.ttf') format('truetype'), url('pslkandabold-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Conv_PSL Kanda Bold Italic';
+    src: url('pslkandabold-webfont.eot');
+    src: local('☺'), url('pslkandabold-webfont.woff') format('woff'), url('pslkandabold-webfont.ttf') format('truetype'), url('pslkandabold-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* @font-face {
+    font-family: 'Conv_Timmana Regular';
+    src: url('fonts/Timmana Regular.eot');
+    src: local('☺'), url('fonts/Timmana Regular.woff') format('woff'), url('fonts/Timmana Regular.ttf') format('truetype'), url('fonts/Timmana Regular.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('fonts/icomoon.eot?wmcrq2');
+    src: url('fonts/icomoon.eot?wmcrq2#iefix') format('embedded-opentype'), url('fonts/icomoon.ttf?wmcrq2') format('truetype'), url('fonts/icomoon.woff?wmcrq2') format('woff'), url('fonts/icomoon.svg?wmcrq2#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('fonts/icomoon.eot?kd265v');
+    src: url('fonts/icomoon.eot?kd265v#iefix') format('embedded-opentype'), url('fonts/icomoon.ttf?kd265v') format('truetype'), url('fonts/icomoon.woff?kd265v') format('woff'), url('fonts/icomoon.svg?kd265v#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-ic-straight-right-arrow:before {
+    content: "\e922";
+}
+
+.icon-ic-straight-up-arrow:before {
+    content: "\e923";
+}
+
+.icon-ic-straight-down-arrow:before {
+    content: "\e924";
+}
+
+.icon-ic-straight-left-arrow:before {
+    content: "\e925";
+}
+
+.icon-ic-line:before {
+    content: "\e921";
+}
+
+.icon-ic-pdf:before {
+    content: "\e920";
+}
+
+.icon-ic-tick-light:before {
+    content: "\e91e";
+}
+
+.icon-ic-tick-light-cri:before {
+    content: "\e91f";
+}
+
+.icon-ic-upload-file:before {
+    content: "\e91d";
+}
+
+.icon-ic-add:before {
+    content: "\e91c";
+}
+
+.icon-ic-tick-step:before {
+    content: "\e91b";
+}
+
+.icon-ic-code-promotion:before {
+    content: "\e91a";
+}
+
+.icon-ic-calendar:before {
+    content: "\e919";
+}
+
+.icon-ic-down-bd-arrow:before {
+    content: "\e915";
+}
+
+.icon-ic-top-bd-arrow:before {
+    content: "\e916";
+}
+
+.icon-ic-right-bd-arrow:before {
+    content: "\e917";
+}
+
+.icon-ic-left-bd-arrow:before {
+    content: "\e918";
+}
+
+.icon-ic-none:before {
+    content: "\e90f";
+}
+
+.icon-ic-have:before {
+    content: "\e910";
+}
+
+.icon-ic-information:before {
+    content: "\e911";
+}
+
+.icon-ic-tag:before {
+    content: "\e912";
+}
+
+.icon-ic-tick:before {
+    content: "\e913";
+}
+
+.icon-ic-pencil:before {
+    content: "\e914";
+}
+
+.icon-ic-minus:before {
+    content: "\e90d";
+}
+
+.icon-ic-plus:before {
+    content: "\e90e";
+}
+
+.icon-ic-close:before {
+    content: "\e90a";
+}
+
+.icon-ic-nav:before {
+    content: "\e90b";
+}
+
+.icon-ic-down-arrow:before {
+    content: "\e909";
+}
+
+.icon-ic-up-arrow:before {
+    content: "\e906";
+}
+
+.icon-ic-right-arrow:before {
+    content: "\e907";
+}
+
+.icon-ic-left-arrow:before {
+    content: "\e908";
+}
+
+.icon-ic-call:before {
+    content: "\e900";
+}
+
+.icon-ic-twitter:before {
+    content: "\e901";
+}
+
+.icon-ic-facebook:before {
+    content: "\e902";
+}
+
+.icon-ic-youtube:before {
+    content: "\e903";
+}
+
+.icon-ic-instagram:before {
+    content: "\e904";
+}
+
+.icon-ic-user:before {
+    content: "\e905";
+}
+
+.icon-ic-search:before {
+    content: "\e90c";
+}

@@ -1,0 +1,1628 @@
+
+var tniMotorWebService = {
+    getRepaireType: function (apiCallback) {
+        //managerepairtypes
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/managerepairtypes";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng
+                + "&$orderby=RepaireTypeValue";
+            $.ajax({
+                url: apiUrl + apiParameter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    getCarBrandHighlight: function (data, apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/carbrandhighlights";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng
+                + "&$expand=CarBrands"
+                + "&$filter=UrlName eq '" + data.url + "'";
+            $.ajax({
+                url: apiUrl + apiParameter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    getCarBrand: function (apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/carbrands";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng
+                + "&$orderby=OrderNumber,Title";
+            $.ajax({
+                url: apiUrl + apiParameter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    getCarModel: function (data, apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/carmodels";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng
+                + "&$filter=ParentId eq " + data.carBrand
+                + "&$orderby=Title";
+            $.ajax({
+                url: apiUrl + apiParameter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            })
+        });
+    },
+    getCarYear: function (data, apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/caryears";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng
+                + "&$filter=ParentId eq " + data.carModel
+                + "&$orderby=Title";
+            $.ajax({
+                url: apiUrl + apiParameter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            })
+        });
+    },
+    getVoluntaryTypes: function (apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/producttypes";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng +
+                "&$expand=Image" +
+                "&$orderby=OrderingNumber";
+            $.ajax({
+                url: apiUrl + apiParameter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            })
+        });
+    },
+    getMotorQuestions: function (data, apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/questions";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng
+                + "&$expand=RelatedMagicBoxParameter"
+                + "&$orderby=OrderingNumber";
+
+            /*if(VoluntaryTypes!=null && VoluntaryTypes.length>0){
+                apiUrl = tniWeb.sitefinityApiURL + "/voluntarytypes";
+                apiParameter = "?$expand=";
+                //apiParameter = "?$orderby=OrderingNumber";
+                for(var i=0;i<VoluntaryTypes.length;i++){
+                    apiParameter += "?&$Id contain (x:x eq "+VoluntaryTypes[i].Id+")";
+                    break;
+                }                
+            } */
+
+            //api/default/{{entity}}({{item_id}})$expand={{related_data_field_name}}
+
+            $.ajax({
+                url: apiUrl + apiParameter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            })
+        });
+    },
+    getMotorAnwsers: function (data, apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/answers";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng +
+                "&$expand=Image" +
+                "&$filter=(ParentId eq " + data.Id + ")" +
+                "&$orderby=OrderingNumber";
+
+            $.ajax({
+                url: apiUrl + apiParameter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            })
+        });
+    },
+    getRecommendedPackages: function (data, apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/recommendedpackages";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng
+                + "&$expand=CarImage,RelatedCarBrand,RelatedCarModel,RelatedCarYear,RelatedProductPlan"
+                + "&$filter=contains(Title, '" + data + "')"
+                //+ "&$orderby=OrderingNumber,CoverageTypeName"
+                ;
+            $.ajax({
+                url: apiUrl + apiParameter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    getMotorPackages: function (data, apiCallback) {
+        var apiUrl = tniWeb.ApiURL + "/motorinsurance/productplans";
+        $.ajax({
+            url: apiUrl,
+            data:
+            {
+                "channel": "EBusiness",
+                "carBrand": data.carBrand,
+                "carModel": data.carModel,
+                "registerYear": data.registerYear,
+                "voluntaryType": data.voluntaryTypes.join(),
+                "fixGrade": "",
+                "camera": "",
+                "newcar": "",
+                "sumIns": "",
+                "driver1": "",
+                "driver2": "",
+                "fullYear": "",
+                "capEquSumIns": "",
+                "effDate": "",
+                "expDate": "",
+                "typeCar": "",
+                "carSubModel": "",
+                "usecar": "",
+                "cov_excess": "",
+                "lng": tniWeb.cLng
+            }
+            ,
+            method: 'POST',
+            cache: false,
+            beforeSend: function (xhr) {
+                // xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        })
+    },
+    getCoverageTypes: function (apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/coveragetypes";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng
+                + "&$expand=RelatedCoverages"
+                + "&$orderby=OrderingNumber,CoverageTypeName";
+            $.ajax({
+                url: apiUrl + apiParameter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    getContactTimes: function (apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/quotationavailabletimes";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng
+                + "&$orderby=OrderingNumber";
+            $.ajax({
+                url: apiUrl + apiParameter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            })
+        });
+    },
+    getManageDriverAges: function (apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/managedriverages";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng
+                + "&$orderby=Title";
+            $.ajax({
+                url: apiUrl + apiParameter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    saveSearch: function (data, apiCallback) {
+        var apiUrl = tniWeb.sitefinityURL + "/webapi/motorInsurance/savesearch";
+        var apiParameter = "";
+        $.ajax({
+            url: apiUrl + apiParameter,
+            method: 'POST',
+            cache: false,
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            dataType: "json",
+            beforeSend: function (xhr) {
+                //xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        });
+    },
+    getSaveSearch: function (data, apiCallback) {
+        var apiUrl = tniWeb.sitefinityURL + "/webapi/motorInsurance/getsavesearch";
+        var apiParameter = "?id=" + data.id;
+        $.ajax({
+            url: apiUrl + apiParameter,
+            method: 'GET',
+            cache: false,
+            //data: JSON.stringify(data),
+            //contentType: "application/json",
+            //dataType: "json",
+            beforeSend: function (xhr) {
+                //xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        });
+    },
+    getQuotation: function (data, apiCallback) {
+        var apiUrl = tniWeb.sitefinityURL + "/webapi/motorInsurance/getquotation";
+        var apiParameter = "?id=" + data.id;
+        $.ajax({
+            url: apiUrl + apiParameter,
+            method: 'GET',
+            cache: false,
+            //data: JSON.stringify(data),
+            //contentType: "application/json",
+            //dataType: "json",
+            beforeSend: function (xhr) {
+                //xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        });
+    },
+    saveQuotation: function (data, apiCallback) {
+        var apiUrl = tniWeb.sitefinityURL + "/webapi/motorinsurance/savequotation";
+        var apiParameter = "";
+        $.ajax({
+            url: apiUrl + apiParameter,
+            method: 'POST',
+            cache: false,
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            dataType: "json",
+            beforeSend: function (xhr) {
+                //xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        });
+    },
+    getMemberDetail: function (data, apiCallback) {
+        var apiUrl = tniWeb.ApiURL + "/Member/getMemberDetail";
+        console.log(apiUrl);
+        $.ajax({
+            url: apiUrl,
+            data: {},
+            method: 'GET',
+            cache: false,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + data.token);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        })
+    },
+    checkMemberPolicy: function (data, apiCallback) {
+        var apiUrl = tniWeb.ApiURL + "/Member/checkmember";
+        console.log(apiUrl);
+        $.ajax({
+            url: apiUrl,
+            data:
+            {
+                "citizen_id": data.citizenId,
+                "mobile_no": data.mobileNo
+            },
+            method: 'POST',
+            cache: false,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + data.token);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        })
+    },
+    requestOTPPolicy: function (data, apiCallback) {
+        var apiUrl = tniWeb.ApiURL + "/Member/requestotp";
+        console.log(apiUrl);
+        $.ajax({
+            url: apiUrl,
+            data:
+            {
+                "to": data.mobileNo
+            },
+            method: 'POST',
+            cache: false,
+            beforeSend: function (xhr) {
+                // xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        })
+    },
+    checkOTPPolicy: function (data, apiCallback) {
+        var apiUrl = tniWeb.ApiURL + "/Member/checkotp";
+        console.log(apiUrl);
+        $.ajax({
+            url: apiUrl,
+            headers: {
+                "Authorization": "Bearer " + data.token
+            },
+            data:
+            {
+                "request_id": data.requestId,
+                "code": data.code,
+            },
+            method: 'POST',
+            cache: false,
+            beforeSend: function (xhr) {
+                // xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        })
+    },
+    getPolicyOrder: function (data, apiCallback) {
+        var apiUrl = tniWeb.ApiURL + "/Member/getAllOrderpolicy";
+        console.log(apiUrl);
+        $.ajax({
+            url: apiUrl,
+            data: {},
+            method: 'GET',
+            cache: false,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + data.token);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        })
+    },
+    getPolicyMember: function (data, apiCallback) {
+        var apiUrl = tniWeb.ApiURL + "/Member/getMemberPolicy";
+        console.log(apiUrl);
+        $.ajax({
+            url: apiUrl,
+            data: {},
+            method: 'GET',
+            cache: false,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + data.token);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        })
+    },
+    getCoverages: function (apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/coverages";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng
+                + "&$expand=Image,RelatedMagicBoxParameter";
+            $.ajax({
+                url: apiUrl + apiParameter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    //================================================================================= Application Form ====================================================================
+    //#region ApplicationForm call api
+    checkMemberApplicationForm: function (data, apiCallback) {
+        var apiUrl = tniWeb.ApiURL + "/Member/ApplicationFormCheckMember";
+        console.log(apiUrl);
+        $.ajax({
+            url: apiUrl,
+            data:
+            {
+                "citizen_id": data.citizen_id,
+                "mobile_no": data.phone_no
+            },
+            method: 'POST',
+            cache: false,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + data.token);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        })
+    },
+    requestOTPApplicationForm: function (data, apiCallback) {
+        var apiUrl = tniWeb.ApiURL + "/Member/requestotp";
+        console.log(apiUrl);
+        $.ajax({
+            url: apiUrl,
+            data:
+            {
+                "to": data
+            },
+            method: 'POST',
+            cache: false,
+            beforeSend: function (xhr) {
+                // xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        })
+    },
+    checkOTPApplicationForm: function (data, apiCallback) {
+        var apiUrl = tniWeb.ApiURL + "/Member/ApplicationFormCheckOTP";
+        console.log(apiUrl);
+        $.ajax({
+            url: apiUrl,
+            headers: {
+                "Authorization": "Bearer " + data.token
+            },
+            data:
+            {
+                "request_id": data.request_id,
+                "code": data.code,
+            },
+            method: 'POST',
+            cache: false,
+            beforeSend: function (xhr) {
+                // xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        })
+    },
+    getMemberApplicationForm: function (data, apiCallback) {
+        var apiUrl = tniWeb.ApiURL + "/Member/ApplicationFormGetMemberDetail";
+        console.log(apiUrl);
+        $.ajax({
+            url: apiUrl,
+            data: {},
+            method: 'GET',
+            cache: false,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + data.token);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        })
+    },
+    getProvinces: function (apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/manageprovinces";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng + "&$top=100&$orderby=ProvinceName";
+            $.ajax({
+                url: apiUrl + apiParameter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    getAmphurs: function (apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/manageamphurs";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng + "&$orderby=AmphurName";
+            $.ajax({
+                url: apiUrl + apiParameter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    getAmphursByParentID: function (ParentID, apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/manageamphurs";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng + "&$top=100&$orderby=AmphurName";
+            var apiFliter = "&$filter=ParentId eq " + ParentID;
+
+            $.ajax({
+                url: apiUrl + apiParameter + apiFliter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    getThumbons: function (apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/managetumbons";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng + "&$orderby=TumbonName";
+            $.ajax({
+                url: apiUrl + apiParameter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    getThumbonsByParentID: function (ParentID, apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/managetumbons";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng + "&$orderby=TumbonName";
+            var apiFliter = "&$filter=ParentId eq " + ParentID;
+
+
+            $.ajax({
+                url: apiUrl + apiParameter + apiFliter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    getGenders: function (apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/managegenders";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng + "&$orderby=GenderName";
+            $.ajax({
+                url: apiUrl + apiParameter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    getOccupations: function (apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/manageoccupations";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng + "&$orderby=OccupationName";
+            $.ajax({
+                url: apiUrl + apiParameter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    getIndividualSalutations: function (apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/manageindividualsalutations";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng + "&$orderby=IndividualSalutationName";
+            $.ajax({
+                url: apiUrl + apiParameter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    getJuristicSalutations: function (apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/managejuristicsalutations";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng + "&$orderby=JuristicSalutationName";
+            $.ajax({
+                url: apiUrl + apiParameter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    getRelationWithBeneficiaries: function (apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/managerelationwithbeneficiaries";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng + "&$orderby=BeneficiaryRelationName";
+            $.ajax({
+                url: apiUrl + apiParameter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    getRelationWithTheInsureds: function (apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/managerelationwiththeinsureds";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng + "&$orderby=InsuredRelationName";
+            $.ajax({
+                url: apiUrl + apiParameter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    GetProvinceByZipCode: function (ZipCode, apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/managetumbons";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng + "&$orderby=TumbonName";
+            var apiFliter = "&$filter=contains(ZipCode,'" + ZipCode + "')";
+            $.ajax({
+                url: apiUrl + apiParameter + apiFliter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+
+    getTumbonsParentIdByZipCode: function (ZipCode, apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/managetumbons";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng + "&$select=ParentId";
+            var apiFliter = "&$filter=contains(ZipCode,'" + ZipCode + "')";
+            $.ajax({
+                url: apiUrl + apiParameter + apiFliter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    getAmphursByEqualUrl: function (equalUrl, apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/manageamphurs";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng + "&$top=100&$orderby=AmphurName";
+            var apiFliter = "&$filter=" + equalUrl;
+
+            $.ajax({
+                url: apiUrl + apiParameter + apiFliter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    getProvinceByProvinceValue: function (ProvinceValue, apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/manageprovinces";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng + "&$filter=ProvinceValue eq '" + ProvinceValue + "'";
+            $.ajax({
+                url: apiUrl + apiParameter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+
+
+    T2AFront_Personal_LocalHost: function (data, apiCallback) {
+        //var url = tniWeb.apiUrl;
+        var localUrl = "http://localhost:44306/Motor2AFront/AddMotorInsurancePersonal"
+        var apiUrl = "/Motor2AFront/AddMotorInsurancePersonal";
+        $.ajax({
+            url: localUrl,
+            method: 'POST',
+            cache: false,
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            dataType: "json",
+            beforeSend: function (xhr) {
+                //xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        });
+    },
+    TransferMotor2AFront: function (data, apiCallback) {
+        var url = tniWeb.ApiURL;
+        var apiUrl = "/Motor2AFront/addmotorinsurancepersonal";
+        $.ajax({
+            url: url + apiUrl,
+            method: 'POST',
+            cache: false,
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            dataType: "json",
+            beforeSend: function (xhr) {
+                //xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        });
+    },
+    T2AFront_Personal: function (data, apiCallback) {
+        var url = tniWeb.ApiURL;
+        var localUrl = "http://localhost:44306"
+        var apiUrl = "/Motor2AFront/addmotorinsurancepersonal";
+        $.ajax({
+            url: url + apiUrl,
+            method: 'POST',
+            cache: false,
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            dataType: "json",
+            beforeSend: function (xhr) {
+                //xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        });
+    },
+    ApplicationForm_CheckAmlo: function (data, apiCallback) {
+        var url = tniWeb.ApiURL;
+        var localUrl = "http://localhost:44306"
+        var apiUrl = "/Motor2AFront/applicationformcheckamlo";
+        $.ajax({
+            url: url + apiUrl,
+            method: 'POST',
+            cache: false,
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            dataType: "json",
+            beforeSend: function (xhr) {
+                //xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        });
+    },
+    T2AFront_Juristic: function (data, apiCallback) {
+        var url = tniWeb.apiUrl;
+        var localUrl = "http://localhost:44306"
+        var apiUrl = "/Motor2AFront/addmotorinsurancepersonal";
+        $.ajax({
+            url: url + apiUrl,
+            method: 'POST',
+            cache: false,
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            dataType: "json",
+            beforeSend: function (xhr) {
+                //xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        });
+    },
+    SaveApplicationFormData: function (data, apiCallback) {
+        var url = tniWeb.sitefinityURL;
+        var apiUrl = "/webapi/MotorInsurance/saveApplicationData";
+        $.ajax({
+            url: url + apiUrl,
+            method: 'POST',
+            cache: false,
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            dataType: "json",
+            beforeSend: function (xhr) {
+                //xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        });
+    },
+    GetProvinceByProvinceValue: function (data, apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/managetumbons";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng + "&$orderby=TumbonName";
+            var apiFliter = "&$filter=ProvinceValue eq '" + data + "'";
+            $.ajax({
+                url: apiUrl + apiParameter + apiFliter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    getAmphursById: function (Id, apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/manageamphurs";
+            var apiParameter = "?&sf_culture=" + tniWeb.cLng + "&$top=100&$orderby=AmphurName";
+            var apiFliter = "&$filter=Id eq " + Id;
+            $.ajax({
+                url: apiUrl + apiParameter + apiFliter,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    GetProvinceById: function (data, apiCallback) {
+        // ?$filter=Id eq dd7a8333-f3f6-46e6-94d2-5f971624d3ec
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/manageprovinces";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng + "&$orderby=ProvinceName";
+            var apiFliter = "&$filter=Id eq " + data;
+            var url = apiUrl + apiParameter + apiFliter;
+            $.ajax({
+                url: url,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    GetPromotion: function (data, apiCallback) {
+        tniWeb.getToken(function () {
+            var url = "https://api.thanachartdev.com/Promotion/getPromotion";
+            // var apiUrl = tniWeb.sitefinityApiURL + "/manageprovinces";
+            // var apiParameter = "?sf_culture=" + tniWeb.cLng + "&$orderby=ProvinceName";
+            // var apiFliter = "&$filter=Id eq "+data;
+            // var url= apiUrl + apiParameter+apiFliter;
+            $.ajax({
+                url: url,
+                type: "POST",
+                dataType: 'json',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    GetJuristicBusinessTypes: function (apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/managejuristicbusinesstypes";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng + "&$orderby=JuristicBusinessTypeName";
+            var url = apiUrl + apiParameter;
+            $.ajax({
+                url: url,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    GetApplicationFormConsent: function (apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/applicationconsentdescriptions";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng + "&$orderby=OrderingNumber&$expand=RelatedProductPlan";
+            var url = apiUrl + apiParameter;
+            $.ajax({
+                url: url,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    GetApplicationFormEPolicyConsent: function (apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/applicationepolicyconsentdescriptions";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng + "&$orderby=OrderingNumber";
+            var url = apiUrl + apiParameter;
+            $.ajax({
+                url: url,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    getManageAddonItem: function (apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/manageaddonitems";
+            $.ajax({
+                url: apiUrl,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    getManageAddon: function (apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/manageaddons";
+            $.ajax({
+                url: apiUrl,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    ApplicationFormSentEmail: function (data, apiCallback) {
+        var url = tniWeb.sitefinityURL;
+        var apiUrl = "/webapi/MotorInsurance/ApplicationFormSentEmail";
+        $.ajax({
+            url: url + apiUrl,
+            method: 'POST',
+            cache: false,
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            dataType: "json",
+            beforeSend: function (xhr) {
+                //xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        });
+    },
+    GetAppFormUploadDocumentItem: function (apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/motorapplicationdocuments";
+            var apiParameter = "?sf_culture=" + tniWeb.cLng + "&$orderby=UploadParameter";
+            var url = apiUrl + apiParameter;
+            $.ajax({
+                url: url,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+    ApplicationFormValidateCaptcha: function (data, apiCallback) {
+        var url = tniWeb.ApiURL;
+        var apiUrl = "/captcha/capcharesponsemessages";
+        $.ajax({
+            url: url + apiUrl,
+            method: 'POST',
+            cache: false,
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            dataType: "json",
+            beforeSend: function (xhr) {
+                //xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        });
+    },
+    ApplicationFormUploadDocuments: function (data, apiCallback) {
+        var url = tniWeb.ApiURL;
+        var apiUrl = "/Member/myPolicyUploadDocument";
+        $.ajax({
+            url: url + apiUrl,
+            method: 'POST',
+            cache: false,
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            dataType: "json",
+            beforeSend: function (xhr) {
+                //xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        });
+    },
+    ApplicationFormCheckPromotionCode: function (ApiUrl, apiCallback) {
+        console.log("ApplicationFormCheckPromotionCode:", ApiUrl);
+        tniWeb.getToken(function () {
+            var url = tniWeb.sitefinityURL + "/webapi/promotioninfo/getpromotion" + ApiUrl;
+
+            $.ajax({
+                url: url,
+                method: 'GET',
+                cache: false,
+
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(ApiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(ApiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+
+    ApplicationFormSaveCarInspect: function (data, apiCallback) {
+        var url = tniWeb.sitefinityURL;
+        var apiUrl = "/webapi/MotorInsurance/saveCarInSpectData";
+        $.ajax({
+            url: url + apiUrl,
+            method: 'POST',
+            cache: false,
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            dataType: "json",
+            beforeSend: function (xhr) {
+                //xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        });
+    },
+    GetApplicationConfiguration: function (apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityApiURL + "/applicationconfigurations";
+            $.ajax({
+                url: apiUrl,
+                method: 'GET',
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+
+
+    // summary
+    InsertPromotionSummary: function (data) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityURL + "/webapi/MotorInsurance/saveApplicationPromotion";
+            $.ajax({
+                url: apiUrl,
+                method: 'POST',
+                cache: false,
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                dataType: "json", on(data, textStatus, xhr) {
+                    console.log("data", data)
+                },
+                error: function (xhr, textStatus) {
+
+                }
+            });
+        });
+    },
+
+    getWebCustomerDataApi: function (Appno, apiCallback) {
+        tniWeb.getToken(function () {
+            var apiUrl = tniWeb.sitefinityURL + "/webapi/WebCustomerDataApi/GetCustomerDataByApplicationNo?AppNo=" + Appno;
+            $.ajax({
+                url: apiUrl,
+                method: 'GET',
+                cache: false,
+                async: false,
+                contentType: "application/json",
+                dataType: "json",
+                on(data, textStatus, xhr) {
+                    console.log("data", data)
+                },
+                success: function (data, textStatus, xhr) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+                },
+                error: function (xhr, textStatus) {
+                    apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                    tniWeb.console(xhr.status);
+                    tniWeb.console(xhr.responseText);
+                }
+            });
+        });
+    },
+
+
+    //#endregion
+    //================================================================================= End Application Form ====================================================================
+
+
+    savePromotion: function (data, apiCallback) {
+        var apiUrl = tniWeb.sitefinityURL + "/webapi/MotorInsurance/savePromotion";
+        var apiParameter = "";
+        $.ajax({
+            url: apiUrl + apiParameter,
+            method: 'POST',
+            cache: false,
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            dataType: "json",
+            beforeSend: function (xhr) {
+                //xhr.setRequestHeader("Authorization", "Bearer " + tniWeb.accessToken);
+            },
+            success: function (data, textStatus, xhr) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, data));
+            },
+            error: function (xhr, textStatus) {
+                apiCallback(tniWeb.getResultData(apiUrl, xhr.status, {}));
+                tniWeb.console(xhr.status);
+                tniWeb.console(xhr.responseText);
+            }
+        });
+    },
+}

@@ -1,0 +1,524 @@
+<!-- facebook login -->
+<div id="popup-login" class="thm-popup">
+<div class="inner">
+
+  <div class="hd txt-c">
+  	<b>เข้าสู่ระบบ</b>
+  </div>
+  <div class="wrap">
+  <div class="fb cb-af"> 
+  	<a class="fb-signin" href="javascript:;" title="Login with facebook" data-fancybox-close onClick="parent.jQuery.fancybox.close();"> <img src="assets/imgs/ic-fb-login.png"> Login with facebook</a>
+	<a class="gg-signin" href="javascript:;" title="Login with google" data-fancybox-close onClick="parent.jQuery.fancybox.close();"> <img src="assets/imgs/ic-google-login.png"> Login with google</a>
+    
+  </div>
+  <div class="or"><span>หรือ</span></div>
+  <div id="login_details" class="z-login">
+    <fieldset>
+      <legend class="hid">เข้าสู่ระบบ</legend>
+      <ul class="section-regis">
+        <li>
+          <label class="ic" for="email"><img src="assets/imgs/ic-email-login.png"></label>
+          <input type="text" maxlength="100" name="ajax_email" id="ajax_email" class="txt-box _self-cl-xs-12" placeholder="อีเมลแอดเดรส">
+        </li>
+        <li>
+          <label class="ic" for="password"><img src="assets/imgs/ic-password.png"></label>
+          <input type="password" class="txt-box _self-cl-xs-12" placeholder="รหัสผ่าน">
+        </li>
+		<li class="ctrl-btn"> 
+           <input type="button" class="ui-btn-red btn-lg btn-block" id="button-login-pop" value="เข้าสู่ระบบ" data-fancybox-close onClick="parent.jQuery.fancybox.close();">
+        </li>
+
+      </ul>
+    </fieldset>
+  </div>
+  <div class="z-regis">
+    <p class="btn-regis _chd-mh10">
+        <a class="btn-signup" href="javascript:;" data-fancybox="registerNew" data-src="#popup-register" data-fancybox-close onClick="parent.jQuery.fancybox.close();">สมัครสมาชิก</a> | 
+		<a href="javascript:;" data-fancybox="forgot" data-src="#popup-forgetpassword" data-fancybox-close onClick="parent.jQuery.fancybox.close();" title="ลืมพาสเวิร์ด">ลืมรหัสผ่าน?</a>
+    </p>
+    
+  </div>
+  </div>
+  
+</div>
+</div>
+<!-- /faceboo login -->
+
+<!-- register -->
+<div id="popup-register" class="thm-popup">
+<div class="inner">
+ <div class="hd txt-c">
+  	<b>สมัครสมาชิก</b>
+  </div>
+  
+  <div class="wrap">
+  <div id="regis_details" class="z-login">
+    <fieldset>
+      <legend class="hid"> สมัครสมาชิกใหม่</legend>
+      <ul class="section-regis">
+	  	<li>
+          <label for="regis_display">ชื่อแสดงในระบบ <span class="rq">*</span></label>
+          <input type="text" maxlength="100" name="regis_display" id="regis_display" class="txt-box _self-cl-xs-12" placeholder="ระบุชื่อแสดงในระบบ">
+        </li>
+		<li class="row _chd-cl-xs-06">
+		  <span>
+			  <label for="regis_name">ชื่อ <span class="rq">*</span></label>
+			  <input type="text" maxlength="100" name="regis_name" id="regis_name" class="txt-box _self-cl-xs-12" placeholder="ระบุชื่อ">
+		  </span>
+		  <span>
+			  <label for="regis_sname">นามสกุล <span class="rq">*</span></label>
+			  <input type="text" maxlength="100" name="regis_sname" id="regis_sname" class="txt-box _self-cl-xs-12" placeholder="ระบุนามสกุล">
+		  </span>
+        </li>
+		<li>
+          <label for="regis_display">เพศ <span class="rq">*</span></label>
+          <div class="mt05-xs _flex _chd-mr20">
+		  	<span class="mz-chk"><input type="radio" name="gender" id="g1"> <label class="ml10-xs" for="g1">ชาย</label></span>
+			<span class="mz-chk"><input type="radio" name="gender" id="g2"> <label class="ml10-xs" for="g2">หญิง</label></span>
+			<span class="mz-chk"><input type="radio" name="gender" id="g3"> <label class="ml10-xs" for="g3">ไม่ระบุ</label></span>
+		  </div>
+        </li>
+        <li>
+          <label for="regis_email">อีเมล แอดเดรส <span class="rq">*</span></label>
+          <input type="text" maxlength="100" name="regis_email" id="regis_email" class="txt-box _self-cl-xs-12" placeholder="ระบุอีเมล แอดเดรส">
+        </li>
+        <li>
+          <label class="ic" for="regis_password">รหัสผ่าน <span class="rq">*</span></label>
+          <input type="password" maxlength="10" name="regis_password" id="regis_password" class="txt-box _self-cl-xs-12" placeholder="ระบุรหัสผ่าน">
+        </li>
+         <li>
+          <label class="ic" for="cregis_password">ยืนยัน รหัสผ่าน <span class="rq">*</span></label>
+          <input type="password" maxlength="10" name="cregis_password" id="cregis_password" class="txt-box _self-cl-xs-12" placeholder="ยืนยัน รหัสผ่าน">
+        </li>
+		<li class="interest">
+			<label for="regis_interest">เลือกหมวดหมู่ที่ท่านสนใจ</label>
+			<ol class="chl-interest row mz-chk _chd-cl-xs-06">
+				<li><input type="checkbox" value="1" id="itr1" name="itr1"> <label class="ml10-xs" for="itr1">แฟนตาซี</label></li>
+				<li><input type="checkbox" value="2" id="itr2" name="itr2"> <label class="ml10-xs" for="itr2">สยองขวัญ</label></li>
+				<li><input type="checkbox" value="3" id="itr3" name="itr3"> <label class="ml10-xs" for="itr3">กำลังภายใน</label></li>
+				<li><input type="checkbox" value="4" id="itr4" name="itr4"> <label class="ml10-xs" for="itr4">ประวัติศาสตร์</label></li>
+				<li><input type="checkbox" value="5" id="itr5" name="itr5"> <label class="ml10-xs" for="itr5">รัก โรแมนติค</label></li>
+				<li><input type="checkbox" value="6" id="itr6" name="itr6"> <label class="ml10-xs" for="itr6">สืบสวนสอบสวน</label></li>
+				<li><input type="checkbox" value="7" id="itr7" name="itr7"> <label class="ml10-xs" for="itr7">คอมมาดื้</label></li>
+				<li><input type="checkbox" value="8" id="itr8" name="itr8"> <label class="ml10-xs" for="itr8">ผจญภัย</label></li>
+				<li><input type="checkbox" value="9" id="itr9" name="itr9"> <label class="ml10-xs" for="itr9">พัฒนาตนเอง</label></li><li></li>
+				<li><input type="checkbox" value="10" id="itr10" name="itr10"> <label class="ml10-xs" for="itr10">ดราม่า</label></li>
+			</ol>
+		</li>
+		<li class="policy mz-chk">
+			<input type="checkbox" value="1" id="accept" name="accept">
+			<label class="ml10-xs" for="accept">ยอมรับ <a class="t-orange" data-fancybox="" data-type="iframe" data-src="https://2read.digital/terms" href="javascript:;" title="การยอมรับข้อตกลงในการใช้งาน"><u>ข้อตกลงในการใช้งาน</u></a></label>
+		</li>
+		<li class="ctrl-btn ma0-xs"> 
+           <input type="button" class="ui-btn-red btn-lg btn-block disabled" id="button-signup-pop" data-fancybox="registerSuccess" data-src="#popup-regisSuccess" data-fancybox-close onClick="parent.jQuery.fancybox.close();" value="สมัครสมาชิก">
+        </li>
+		<script>
+			var checker = document.getElementById('accept');
+			var sendbtn = document.getElementById('button-signup-pop');
+			// when unchecked or checked, run the function
+			checker.onchange = function(){
+			if(this.checked){
+				sendbtn.disabled = false;
+				sendbtn.classList.remove("disabled");
+			} else {
+				sendbtn.disabled = true;
+				sendbtn.classList.add("disabled");
+			}
+
+			}
+		</script>
+       
+      </ul>
+    </fieldset>
+  </div>
+  </div>
+
+</div>
+</div>
+<!-- /register -->
+
+<!-- forgetpassword -->
+<div id="popup-forgetpassword" class="thm-popup">
+<div class="inner">
+ <div class="hd txt-c">
+  	<b>ลืมรหัสผ่าน</b>
+  </div>
+  
+  <div class="wrap">
+  <div id="regis_details2" class="z-login none">
+    <fieldset>
+      <legend><b>ขอรหัสผ่านใหม่</b> <small class="mt10-xs">กรุณากรอกอีเมล แอดเดรสในช่องด้านล่างเพื่อเริ่มการตั้งค่ารหัสผ่านใหม่</small>
+	  </legend>
+       <ul class="section-regis">
+        <li>
+          <label class="ic" for="forgot_email"><b>อีเมล แอดเดรส</b> <span class="rq">*</span></label>
+          <input type="text" maxlength="100" name="forgot_email" id="forgot_email" class="txt-box _self-cl-xs-12" placeholder="ระบุอีเมลที่ใช้สมัคร">
+        </li>
+        <li class="ctrl-btn pt30-xs"> 
+           <input type="button" class="ui-btn-red btn-lg btn-block" id="button-forgot-pop" data-fancybox="SendPasswordSuccess" data-src="#popup-sendSuccess" data-fancybox-close onClick="parent.jQuery.fancybox.close();" value="ส่งอีเมล">
+        </li>
+      </ul>
+    </fieldset>
+  </div>
+  </div>
+  
+</div>
+</div>
+<!-- /forgetpassword -->
+
+<!-- change password -->
+<div id="popup-changepassword" class="thm-popup">
+	<div class="inner">
+	 <div class="hd txt-c">
+		  <b>เปลี่ยนรหัสผ่าน</b>
+	  </div>
+	  
+	  <div class="wrap">
+	  <div id="regis_details2" class="z-login none">
+		<fieldset>
+		  
+		   <ul class="section-regis">
+			<li>
+			  <label class="ic" for="old_password">รหัสผ่านเดิม <span class="rq">*</span></label>
+			  <input type="text" maxlength="100" name="old_password" id="old_password" class="txt-box _self-cl-xs-12" placeholder="ระบุรหัสผ่านเดิม">
+			</li>
+			<li>
+				<label class="ic" for="new_password">รหัสผ่านใหม่ <span class="rq">*</span></label>
+				<input type="text" maxlength="100" name="new_password" id="new_password" class="txt-box _self-cl-xs-12" placeholder="ระบุรหัสผ่านใหม่">
+			</li>
+			<li>
+				<label class="ic" for="confirm_password">ยืนยัน รหัสผ่าน <span class="rq">*</span></label>
+				<input type="text" maxlength="100" name="confirm_password" id="confirm_password" class="txt-box _self-cl-xs-12" placeholder="ยืนยัน รหัสผ่าน">
+			</li>
+			<li class="ctrl-btn pt30-xs"> 
+			   <input type="button" class="ui-btn-red btn-lg btn-block" id="button-forgot-pop" data-fancybox="changeSuccess" data-src="#popup-success" data-fancybox-close onClick="parent.jQuery.fancybox.close();" value="เปลี่ยนรหัสผ่าน">
+			</li>
+		  </ul>
+		</fieldset>
+	  </div>
+	  </div>
+	  
+	</div>
+	</div>
+	<!-- /change password -->
+
+
+<!-- Buy Book -->
+<div id="popup-confirm-buy" class="thm-popup min">
+<div class="box-middle">
+<div class="inner md-read txt-c">
+	<h2 class="head f-bold">ยืนยันการจ่ายเหรียญ</h2>
+	<div class="msg">
+		<h3 class="title f-bold mb20-xs">ตอนที่ 5 : อันตรายระหว่างทาง</h3>
+		<p>ราคา <i class="yicon"><img src="./assets/imgs/ic-large-coin.png" height="24"></i> <b class="t-black pl10-xs pr10-xs">20</b> เหรียญ  </p>
+		<p class="mt20-xs"><a class="ui-btn-red btn-lg" href="javascript:;" data-fancybox="" data-src="#popup-buy-success" data-fancybox-close="" onClick="parent.jQuery.fancybox.close();">ยืนยัน</a></p>
+	</div>
+	<div class="coin-credit">
+		จำนวนเหรียญทั้งหมดของคุณคือ <i class="yicon"><img src="./assets/imgs/ic-large-coin.png" height="24"></i> <b class="t-black pl10-xs pr10-xs">1000</b> เหรียญ 
+	</div>
+</div>
+</div>
+</div>
+<!-- Buy Success -->
+<div id="popup-buy-success" class="thm-popup min">
+<div class="box-middle">
+<div class="inner md-read txt-c pa20-xs">
+	<i class="icon"><img src="assets/imgs/ic-check.png" height="80"></i>
+	<h2 class="head f-bold">จ่ายเหรียญเรียบร้อยแล้ว</h2>
+	<div class="msg pa20-xs">
+	<p>ท่านได้จ่ายเหรียญเหรียญเรียบร้อยแล้ว <br>ขอให้ท่านสนุกกับการอ่าน</p>
+	<p class="t-orange mt20-xs">ตอนที่คุณซื้อได้เข้าไปอยู่ในชั้นหนังสือเรียบร้อยแล้ว</p>
+	</div>
+	<p class="d-flex center-xs _chd-cl-xs-05-md-04"><a class="ui-btn-blue btn-lg btn-block" href="my-shelf.php" data-fancybox-close="" onClick="parent.jQuery.fancybox.close();">เข้าดูตอนนี้</a></p>
+</div>
+</div>
+</div>
+<!-- Buy enough coin -->
+<div id="popup-topup-buy" class="thm-popup min">
+<div class="box-middle">
+<div class="inner md-read txt-c">
+	<h2 class="head f-bold">ยืนยันการจ่ายเหรียญ</h2>
+	<div class="msg">
+		<h3 class="title f-bold mb20-xs">ตอนที่ 5 : อันตรายระหว่างทาง</h3>
+		<p>ราคา <i class="yicon"><img src="./assets/imgs/ic-large-coin.png" height="24"></i> <b class="t-black pl10-xs pr10-xs">20</b> เหรียญ  </p>
+		<p class="mt20-xs t-red">ไม่สามารถซื้อได้ เนื่องจากเหรียญไม่เพียงพอ </p>
+		<p class="mt10-xs"><a class="ui-btn-blue btn-lg" href="my-wallet.php" <?php /* data-fancybox="" data-src="#popup-topup-payment" */ ?> data-fancybox-close="" onClick="parent.jQuery.fancybox.close();">ต้องการซื้อเหรียญ</a></p>
+	</div>
+	<div class="coin-credit">
+		จำนวนเหรียญทั้งหมดของคุณคือ <i class="yicon"><img src="./assets/imgs/ic-large-coin.png" height="24"></i> <b class="t-black pl10-xs pr10-xs">10</b> เหรียญ 
+	</div>
+</div>
+</div>
+</div>
+<!-- /Buy Book -->
+
+
+<!-- topup-select -->
+<div id="popup-topup-select" class="thm-popup min">
+<div class="box-middle">
+<div class="inner md-read pa20-xs">
+	<h2 class="head normal txt-c">เลือกแพ็กเกจเหรียญ</h2>
+	<form method="post" action="#" class="form-topup _chd-cl-xs-12 center-xs">
+		<ul class="list-package read-icon txt-c mz-chk">
+			<?php for ($i=50; $i <=500; $i+=50) {?> 
+			<li>
+				<input type="radio" id="pk-p0<?php echo $i; ?>" name="topupCoin">
+				<label for="pk-p0<?php echo $i; ?>">
+					<div class="d-flex flex-wrap between-xs middle-xs txt-l">
+					<span class="_self-cl-xs-12-xsh-07"><input type="radio" id="pk-p01" name="pk-choose" class="mr10-xs"> เติม <?php echo $i; ?> บาท   ได้รับเหรียญทั้งหมด </span> 
+					<em class="_self-cl-xs-12-xsh-05 end-xs start-xsh"><i class="yicon"><img src="assets/imgs/ic-large-coin.png" height="20"></i> <?php echo $i; ?> เหรียญ</em>
+					</div>
+				</label>
+			</li>
+			<?php } ?>
+			
+		</ul>
+		<p class="ctrl-btn mt20-xs d-flex center-xs _chd-cl-xs-08-md-06">
+			<a class="ui-btn-blue btn-lg btn-block" href="javascript:;" data-fancybox="" data-src="#popup-topup-wallet" data-fancybox-close="" onClick="parent.jQuery.fancybox.close();"><small>ดำเนินการชำระเงิน</small></a>
+		</p>
+	</form>
+</div>
+</div>
+</div>
+<!-- topup-select -->
+
+<!-- topup-payment -->
+<!-- <div id="popup-topup-payment" class="thm-popup min">
+<div class="box-middle">
+<div class="inner md-read pa20-xs">
+	<h2 class="head normal txt-c">เติม 500 บาท ได้รับเหรียญทั้งหมด 575 เหรียญ (15%)</h2>
+	<div class="head total-line pa10-xs mb20-xs txt-c">
+		<big class="t-blue">500 บาท</big>
+	</div>
+	<form method="post" action="#" class="_chd-cl-xs-08 center-xs">
+	<ul class="_chd-mb10">
+		<li class="visa">
+			<input type="text" maxlength="6" name="add_card" id="add_card" class="txt-box bd block" placeholder="xxxx-xxxx-xxxx-xxxx" value="1232-3249-2140-7798">
+		</li>
+		<li>
+			<input type="text" maxlength="100" name="add_card_name" id="add_card_name" class="txt-box bd block" placeholder="Name">
+		</li>
+		<li class="row _chd-cl-xs-08">
+			<span>
+			<input type="text" maxlength="100" name="add_card_expired" id="add_card_expired" class="txt-box bd block" placeholder="Expire Date">
+			</span>
+			<span class="_self-cl-xs-04 _self_ps-rlt">
+			<input type="text" maxlength="100" name="add_card_cvc" id="add_card_cvc" class="txt-box bd block" placeholder="CVC">
+			<i class="fa-question-circle t-gray2" style="position: absolute; top: 50%; right: 15px; transform: translateY(-50%)"></i>
+			</span>
+		</li>
+	</ul>
+	<p class="mt10-xs"><a class="ui-btn-blue-sq btn-lg btn-block" href="javascript:;" data-fancybox="" data-src="#popup-topup-wallet" data-fancybox-close="" onClick="parent.jQuery.fancybox.close();"><small>CHECKOUT</small></a></p>
+	</form>
+</div>
+</div>
+</div> -->
+
+<!-- walletSuccess -->
+<div id="popup-wallet-success" class="thm-popup min">
+<div class="box-middle">
+<div class="inner md-read txt-c">
+	<i class="icon"><img src="assets/imgs/ic-check.png" height="80"></i>
+	<h2 class="head t-black">ซื้อเรียบร้อยแล้ว</h2>
+	<div class="msg">
+	<p>ตอนที่คุณซื้อได้เข้าไปอยู่ในชั้นหนังสือเรียบร้อยแล้ว</p>
+	</div>
+	<p><a class="ui-btn-red btn-lg btn-block" href="javascript:;" data-fancybox-close="" onClick="parent.jQuery.fancybox.close();">ปิดหน้าต่าง</a></p>
+</div>
+</div>
+</div>
+
+<div id="popup-topup-wallet" class="thm-popup min">
+<div class="box-middle">
+<div class="inner md-read txt-c pa20-xs">
+	<i class="icon"><img src="assets/imgs/ic-check.png" height="80"></i>
+	<h2 class="head t-black">ทำรายการเรียบร้อยแล้ว</h2>
+	<div class="msg">
+	<div class="head total-line pa10-xs mb20-xs txt-c">
+		<big class="t-pink">เติม 500 บาท</big>
+	</div>
+	<p>คุณได้รับเหรียญทั้งหมด 575 เหรียญ (15%) เรียบร้อยแล้ว</p>
+	</div>
+	<p><a class="ui-btn-red btn-lg btn-block" href="javascript:;" data-fancybox-close="" onClick="parent.jQuery.fancybox.close();">ปิดหน้าต่าง</a></p>
+</div>
+</div>
+</div>
+
+
+
+<!-- sendEmail Success -->
+<div id="popup-sendSuccess" class="thm-popup">
+<div class="box-middle">
+<div class="inner md-read pa20-xs pa30-md txt-c">
+	<i class="icon"><img src="assets/imgs/ic-link-email.png" height="80"></i>
+	<h2 class="head t-black">ส่งลิงค์ไปที่อีเมลของท่านเรียบร้อยแล้ว</h2>
+	<div class="msg txt-c pa30-xs _flex center-xs">
+		<p class="_self-cl-xs-12-md-10"><small>กรุณาตรวจสอบอีเมลของท่าน<br>เพื่อตั้งค่ารหัสผ่านใหม่</small></p>
+	</div>
+	<p class="mt30-xs"><a class="ui-btn-red btn-lg btn-block" href="javascript:;" data-fancybox-close="" onClick="parent.jQuery.fancybox.close();">เข้าสู่หน้าหลักเว็บไซต์</a></p>
+</div>
+</div>
+</div>
+
+<!-- Register Success-->
+<div id="popup-regisSuccess" class="thm-popup">
+<div class="box-middle">
+<div class="inner md-read pa20-xs pa30-md txt-c">
+	<i class="icon"><img src="assets/imgs/ic-check.png" height="80"></i>
+	<h2 class="head t-black">สมัครสมาชิกเรียบร้อยแล้ว</h2>
+	<div class="msg txt-c pa30-xs _flex center-xs">
+		<p class="_self-cl-xs-12-md-10"><small>กรุณาตรวจสอบอีเมลของท่าน<br>เพื่อทำการยืนยันการสมัครสมาชิกใหม่</small></p>
+	</div>
+	<p class="mt30-xs"><a class="ui-btn-red btn-lg btn-block" href="javascript:;" data-fancybox="Confirmation" data-src="#popup-verified" data-fancybox-close="" onClick="parent.jQuery.fancybox.close();">เข้าสู่หน้าหลักเว็บไซต์</a></p>
+</div>
+</div>
+</div>
+
+<div id="popup-verified" class="thm-popup">
+<div class="box-middle">
+<div class="inner md-read pa20-xs pa30-md txt-c">
+	<i class="icon"><img src="assets/imgs/ic-mail-confirm.png" height="80"></i>
+	<h2 class="head t-black">ทำการยืนยันตนเรียบร้อยแล้ว</h2>
+	<div class="msg txt-c pa30-xs _flex center-xs">
+		<p class="_self-cl-xs-12-md-10"><small>ท่านได้ทำการยืนยันตัวตนผ่านอีเมลเรียบร้อยแล้ว<br>ขอให้สนุกกับการอ่าน</small></p>
+	</div>
+	<p class="mt30-xs"><a class="ui-btn-red btn-lg btn-block" href="javascript:;" data-fancybox-close="" onClick="parent.jQuery.fancybox.close();">Login เข้าสู่ระบบ</a></p>
+</div>
+</div>
+</div>
+
+<!-- Success -->
+<div id="popup-success" class="thm-popup">
+<div class="box-middle">
+<div class="inner md-read pa20-xs pa30-md txt-c">
+	<i class="icon"><img src="assets/imgs/ic-check.png" height="80"></i>
+	<h2 class="head t-black">บันทึกเรียบร้อยแล้ว</h2>
+	<div class="msg txt-c pa30-xs _flex center-xs">
+		<p class="_self-cl-xs-12-md-10"><small>ระบบได้ทำรายการเสร็จสมบูรณ์แล้ว</small></p>
+	</div>
+	<p class="mt30-xs"><a class="ui-btn-red btn-lg btn-block" href="javascript:;" data-fancybox-close="" onClick="parent.jQuery.fancybox.close();">ปิดหน้าต่าง</a></p>
+</div>
+</div>
+</div>
+<!-- /Success -->
+
+<!-- confirm delete-->
+<div id="popup-delete" class="thm-popup">
+<div class="box-middle">
+<div class="inner md-read pa20-xs pa30-md txt-c">
+	<i class="icon"><img src="assets/imgs/ic-unfollow.png" height="80"></i>
+	<h2 class="head t-black">ยืนยันการยกเลิก</h2>
+	<div class="msg txt-c pa30-xs _flex center-xs">
+		<p class="_self-cl-xs-12-md-10"><small>ท่านต้องการเลิกติดตามรายการนี้</small></p>
+	</div>
+	<p class="mt30-xs d-flex center-xs _chd-cl-xs-06-sm-05-md-04">
+		<span><a class="ui-btn-red btn-lg btn-block" href="javascript:;" data-fancybox-close="" onClick="parent.jQuery.fancybox.close(); $('#ar1').remove();">ยืนยัน</a></span></p>
+</div>
+</div>
+</div>
+<!-- /confirm delete-->
+
+<!-- Review -->
+<div id="popup-cmreview" class="thm-popup large">
+<div class="box-middle">
+<div class="inner md-read pa20-xs pa30-md txt-c">
+
+	<ul class="main-review">
+		<li>
+				<h2 class="h-line"><small>เขียนรีวิว</small></h2>
+				<div class="post-cm">
+					<form method="post" action="#" class="form-comment">
+						<fieldset>
+							<legend class="hid">แสดงความคิดเห็น</legend>
+							<div>
+							<textarea class="txt-box bd" id="msg-commnet" placeholder="แสดงความคิดเห็นกับเรื่องนี้" rows="8"></textarea>
+							</div>
+							<p class="count-cha txt-r"><span class="count">0</span> / 1000</p>
+						</fieldset>
+					</form>
+				</div>
+				
+		</li>
+		<li>
+				<h2 class="h-line"><small>ให้คะแนนเรื่องนี้</small></h2>
+				<!-- Post Rating -->
+				<div class="post-rating mt20-xs mb20-xs">
+					<label for="rv_rating_place" class="hid">ระดับความชอบ</label>
+
+					<select name="rv_rating_place" id="rv_rating_place" class="rating">
+						<option value="1">ไม่ไหวจะเคลียร์</option>
+						<option value="2">กล้อมแกล้มพอรับได้</option>
+						<option value="3">ได้มาตรฐานปกติ</option>
+						<option value="4">ดีจริงๆ ขอบอก</option>
+						<option value="5">เยี่ยมยอดห้ามพลาด</option>
+				</select>
+
+				</div>
+				<!-- /Post Rating -->
+
+
+		</li>
+		<li class="ctrl-btn pt20-xs txt-c">
+			<a class="ui-btn-red btn-lg" href="javascript:;" data-fancybox="reviewSuccess" data-src="#popup-cm-success" data-fancybox-close="" onClick="parent.jQuery.fancybox.close();">ตกลง</a>
+		</li>
+	</ul>
+	
+</div>
+</div>
+</div>
+<!-- /Review -->
+
+<!-- Success -->
+<div id="popup-cm-success" class="thm-popup">
+<div class="box-middle">
+<div class="inner md-read pa20-xs pa30-md txt-c">
+	<i class="icon"><img src="assets/imgs/ic-check.png" height="80"></i>
+	<h2 class="head t-black">บันทึกข้อมูลรีวิวเรียบร้อยแล้ว</h2>
+	<div class="msg txt-l pa30-xs f-sarabun _flex center-xs">
+		<p class="_self-cl-xs-12-md-10 txt-c"><small>ระบบได้บันทึกข้อมูลการรีวิวของท่านเรียบร้อยแล้ว ขอบคุณสำหรับการรีวิว</small></p>
+	</div>
+	<p class="mt30-xs"><a class="ui-btn-red btn-lg btn-block" href="javascript:;" data-fancybox-close="" onClick="parent.jQuery.fancybox.close();">ปิดหน้าต่าง</a></p>
+</div>
+</div>
+</div>
+<!-- /Success -->
+
+<!-- Social share -->
+<div id="popup-share" class="thm-popup thm-sh-social">
+
+<h3 class="head">Share</h3>
+<div class="main pa20-xs pa30-md txt-c">
+	<div>
+	<a class="icon-fb" href="#" title="share facebook">
+		<i class="yicon fav"><img src="./assets/imgs/ic-sh-fb.png" height="24"></i>
+	</a>
+	<!-- line -->
+	<div class="line-it-button" style="display: none;" data-lang="en" data-type="share-c" data-ver="3" data-url="https://social-plugins.line.me/en/how_to_install#likebutton" data-color="default" data-size="large" data-count="false"></div>
+	 <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+	<!-- /line -->
+
+	<a class="icon-tw" href="#" title="share twitter">
+		<i class="yicon fav"><img src="./assets/imgs/ic-sh-tw.png" height="24"></i>
+	</a>
+	</div>
+	<form method="get" action="javascript:;">
+		<input id="url" onclick="this.select()" type="url" value="http://2read.devio.co.th:9080/read/%E0%B9%81%E0%B8%AD%E0%B8%9A%E0%B8%97%E0%B8%B3%201%20%E0%B8%8A%E0%B8%B1%E0%B9%88%E0%B8%A7%E0%B9%82%E0%B8%A1%E0%B8%87%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%9D%E0%B8%B1%E0%B8%99%E0%B9%80%E0%B8%9B%E0%B8%A5%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%99%E0%B8%AF" readonly>
+		<button type="button" class="ui-btn-trans" onclick="Copy();">Copy Link</button>
+		
+	</form>
+
+
+</div>
+</div>
+<!-- Social share -->
+
+<script>
+function Copy() {
+  var Url = document.getElementById("url");
+  Url.innerHTML = window.location.href;
+  console.log(Url.innerHTML)
+  Url.select();
+  document.execCommand("copy");
+  alert('Copied');
+}
+</script>

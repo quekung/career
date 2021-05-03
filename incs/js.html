@@ -1,0 +1,83 @@
+<!-- <script src="./Home_files/semantic.js.download" type="text/javascript"></script> -->
+<script
+  src="//code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+	<script src="./Home_files/kidkarnmaiPreloader.js.download" type="text/javascript"></script>
+	<script src="./Home_files/kidkarnmaiCreateJs.js.download" type="text/javascript"></script>
+	<script src="./Home_files/angular.min.js.download" type="text/javascript"></script>
+	<script src="./Home_files/angular-sanitize.min.js.download" type="text/javascript"></script>
+	<script src="./Home_files/angularjs-captcha.min.js.download" type="text/javascript"></script>
+	<script src="./Home_files/angular_controller.js.download" type="text/javascript"></script>
+	<script src="./Home_files/createjs.min.js.download" type="text/javascript"></script>
+	<script src="./Home_files/tniwebapi.js.download" type="text/javascript"></script>
+	<script src="./Home_files/tnimotorwebservice.js.download" type="text/javascript"></script>
+	<script src="./Home_files/animate_1.js.download" type="text/javascript"></script>
+	<script src="./Home_files/animate_1_action.js.download" type="text/javascript"></script>
+	<script src="./Home_files/animate_2.js.download" type="text/javascript"></script>
+	<script src="./Home_files/animate_2_action.js.download" type="text/javascript"></script>
+	<script src="./Home_files/owl.carousel.min.js.download" type="text/javascript"></script>
+	<script src="./Home_files/TweenMax.js.download" type="text/javascript"></script>
+	<script src="./Home_files/CustomEase.js.download" type="text/javascript"></script>
+	<script src="./Home_files/tipped.js.download" type="text/javascript"></script>
+	<script src="./Home_files/swiper-bundle.js.download" type="text/javascript"></script>
+	<script src="./Home_files/swiper-bundle.min.js.download" type="text/javascript"></script>
+	<script>
+		$(document).ready(function () {
+		            var Hmenu = $('.section-header').outerHeight();
+		            $('.space-header').css({ "height": Hmenu });
+		
+		            $(window).resize(function () {
+		                var Hmenu = $('.section-header').outerHeight();
+		                $('.space-header').css({ "height": Hmenu });
+		            });
+		
+		
+		            $('.block-menu .ui.dropdown').dropdown({
+		                on: 'hover',
+		                forceSelection: false,
+		                delay: {
+		                    hide: 0,
+		                    show: 100,
+		                    search: 50,
+		                    touch: 1000,
+		                    duration: 0,
+		                }
+		                // allowCategorySelection: true,
+		
+		            });
+		
+		            $(".btn-menu-nav").click(function () {
+		                $("body").addClass("show_menu");
+		            });
+		            $(".btn-close-menu").click(function () {
+		                $("body").removeClass("show_menu");
+		            });
+		        });
+	</script>
+	<script>
+		$(document).ready(function () {
+		            $("#sitemapShow").click(function () {
+		                $("#sitemapShow, .list-footer-sitemap").toggleClass("active");
+		            });
+		
+		            $(".btn-language").each(function () {
+		                $(this).click(function () {
+		                    var iLanguage = $(this).attr("data-chang-language");
+		                    if (iLanguage === 'th') {
+		                        $(".language-thai").addClass("active");
+		                        $(".language-eng").removeClass("active");
+		                    } else {
+		                        $(".language-thai").removeClass("active");
+		                        $(".language-eng").addClass("active");
+		                    }
+		                });
+		            });
+		            $('.ui.accordion_first').accordion();
+					//career
+					$('.ui.accordion').accordion();
+					$('select.dropdown').dropdown();
+					$('.ui.radio.checkbox').checkbox();
+		        });
+	</script>
