@@ -1185,7 +1185,8 @@
                             <label>CV :</label>
                             <div class="ui right action left icon input">
                                 <i class="file pdf outline icon"></i>
-                                <input type="text" placeholder="Search">
+                                <!-- <input class="" type="text" placeholder="Click to Upload file"> -->
+                                <input type="file" placeholder="Click to Upload file">
                                 <div class="ui basic label button"><i class="trash alternate outline icon"></i></div>
                                 <!-- <div class="ui basic floating dropdown button" tabindex="0">
                                     <i class="trash alternate outline icon"></i>
@@ -1197,7 +1198,7 @@
                             <label>ID Card :</label>
                             <div class="ui right action left icon input">
                                 <i class="id card outline icon"></i>
-                                <input type="text" placeholder="Click to Upload file">
+                                <input type="file" placeholder="Click to Upload file">
                                 <div class="ui basic label button"><i class="trash alternate outline icon"></i></div>
                                 <!-- <div class="ui basic floating dropdown button" tabindex="0">
                                     <i class="trash alternate outline icon"></i>
@@ -1209,7 +1210,7 @@
                             <label>Transcript :</label>
                             <div class="ui right action left icon input">
                                 <i class="file alternate outline icon"></i>
-                                <input type="text" placeholder="Click to Upload file">
+                                <input type="file" placeholder="Click to Upload file">
                                 <div class="ui basic label button"><i class="trash alternate outline icon"></i></div>
                                 <!-- <div class="ui basic floating dropdown button" tabindex="0">
                                     <i class="trash alternate outline icon"></i>
@@ -1222,10 +1223,10 @@
             </div>
             <div class="footer-form d-flex justify-content-center align-items-center mt-5 mb-5">
             
-                <button class="ui grey basic button col-5 col-sm-3 col-lg-2 disabled mr-3">
+                <button class="ui grey basic button col-5 col-sm-3 col-lg-2 disabled mr-1 mr-md-3">
                 บันทึก
                 </button>
-                <button class="ui primary button col-5 col-sm-3 col-lg-2 disabled ml-3">
+                <button class="ui primary button col-5 col-sm-3 col-lg-2 disabled ml-1 ml-md-3 text-nowrap">
                 ยืนยันการสมัคร
                 </button>
             </div>
