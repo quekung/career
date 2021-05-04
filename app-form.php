@@ -1151,22 +1151,16 @@
                                 <input id="accept1" type="checkbox" onClick="$('.footer-form button').removeClass('disabled')">
                                 <label for="accept1">ข้าพเจ้ารับรองว่า ข้อมูลทั้งหมดที่ระบุไว้ในใบสมัครงานถูกต้องและเป็นความจริงทุกประการ และข้าพเจ้าได้อ่านและรับทราบนโยบายคุ้มครองข้อมูลส่วนบุคคล สำหรับผู้สมัครงาน ที่บริษัทได้แจ้งไว้ที่  www.thanachartinsurance/recruitment-policy แล้ว
 
-                                <div class="mt-4">การให้ความยินยอมในการเก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคล เพื่อวัตถุประสงค์ในการประเมินและพิจารณาคุณสมบัติ
-ในการรับสมัครเข้าทำงานกับบริษัท ธนชาตประกันภัย จำกัด (มหาชน)</div>
+                                <div class="mt-4">การให้ความยินยอมในการเก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคล เพื่อวัตถุประสงค์ในการประเมินและพิจารณาคุณสมบัติ ในการรับสมัครเข้าทำงานกับบริษัท ธนชาตประกันภัย จำกัด (มหาชน)</div>
                                 </label>
                             </div>
                             <div class="field ui checkbox mb-4">
                                 <input id="accept2" type="checkbox" onClick="$('.footer-form button').removeClass('disabled')">
-                                <label for="accept2">ข้าพเจ้ายินยอมให้บริษัทเก็บรวบรวม ใช้ และเปิดเผยข้อมูลเครดิตบูโร ข้อมูลสุขภาพ และข้อมูลประวัติอาชญากรรม เพื่อวัตถุประสงค์
-ในการประเมิน และพิจารณาคุณสมบัติในการรับสมัครเข้าทำงานของบริษัท	</label>
+                                <label for="accept2">ข้าพเจ้ายินยอมให้บริษัทเก็บรวบรวม ใช้ และเปิดเผยข้อมูลเครดิตบูโร ข้อมูลสุขภาพ และข้อมูลประวัติอาชญากรรม เพื่อวัตถุประสงค์ในการประเมิน และพิจารณาคุณสมบัติในการรับสมัครเข้าทำงานของบริษัท	</label>
                             </div>
                             <div class="field ui checkbox">
                                 <input id="accept3" type="checkbox" onClick="$('.footer-form button').removeClass('disabled')">
-                                <label for="accept3">ข้าพเจ้ายินยอมให้บริษัทสอบถามและตรวจสอบประวัติการทำงานของข้าพเจ้าจากบริษัทที่ข้าพเจ้าเป็นหรือเคยเป็นพนักงาน หรือบุคคล
-อ้างอิงที่ข้าพเจ้าระบุไว้ในใบสมัครงานฉบับนี้ เพื่อวัตถุประสงค์ในการประเมินและพิจารณาคุณสมบัติการรับสมัครเข้าทำงาน ทั้งนี้ ข้าพเจ้า
-รับรองว่าบุคคลในครอบครัวหรือบุคคลอ้างอิงที่ข้าพเจ้าระบุข้อมูลส่วนบุคคลไว้นั้น ได้รับทราบและให้ความยินยอมในการถูกอ้างอิงเพื่อ
-ประโยชน์ในกระบวนการยื่นสมัครงานครั้งนี้  และข้าพเจ้าตกลงรับผิดชอบในความเสียหายหรือสิทธิเรียกร้องใดๆ อันเกิดจากที่ข้าพเจ้า
-เปิดเผยข้อมูลส่วนบุคคลของบุคคลดังกล่าวต่อบริษัท</label>
+                                <label for="accept3">ข้าพเจ้ายินยอมให้บริษัทสอบถามและตรวจสอบประวัติการทำงานของข้าพเจ้าจากบริษัทที่ข้าพเจ้าเป็นหรือเคยเป็นพนักงาน หรือบุคคลอ้างอิงที่ข้าพเจ้าระบุไว้ในใบสมัครงานฉบับนี้ เพื่อวัตถุประสงค์ในการประเมินและพิจารณาคุณสมบัติการรับสมัครเข้าทำงาน ทั้งนี้ ข้าพเจ้ารับรองว่าบุคคลในครอบครัวหรือบุคคลอ้างอิงที่ข้าพเจ้าระบุข้อมูลส่วนบุคคลไว้นั้น ได้รับทราบและให้ความยินยอมในการถูกอ้างอิงเพื่อประโยชน์ในกระบวนการยื่นสมัครงานครั้งนี้  และข้าพเจ้าตกลงรับผิดชอบในความเสียหายหรือสิทธิเรียกร้องใดๆ อันเกิดจากที่ข้าพเจ้าเปิดเผยข้อมูลส่วนบุคคลของบุคคลดังกล่าวต่อบริษัท</label>
                             </div>
                         </div>
 
@@ -1174,31 +1168,50 @@
                     </div>
                 </div>
                 <!-- acc6 -->
-                <div class="title ui">
+                <div class="title ui ">
                     <span class="head">ส่วนที่ 6 แนบเอกสาร / Attached </span>        
                     <i class="chevron down icon"></i>
                 </div>
-                <div class="content">
+                <div class="content ">
                     <div class="ui form">
 
                         <div class="field">
                             <label>CV :</label>
-                            <div class="ui right action left icon input">
+                            <div class="ui right action left icon input file-upload-wrapper" data-text="Click to Upload file">
                                 <i class="file pdf outline icon"></i>
                                 <!-- <input class="" type="text" placeholder="Click to Upload file"> -->
-                                <input type="file" placeholder="Click to Upload file">
+                                <input type="file" class="file-upload-field" id="upload_file1" name="upload_file1" accept="image/*" placeholder="Click to Upload file">
+                                <label class="hid" for="upload_file1">Click to Upload file</label>
+                                <img class="hidden" id="show_image_src" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" />
                                 <div class="ui basic label button"><i class="trash alternate outline icon"></i></div>
                                 <!-- <div class="ui basic floating dropdown button" tabindex="0">
                                     <i class="trash alternate outline icon"></i>
                                 </div> -->
                             </div>
+                            <script>
+                                document.getElementById("upload_file1").onchange = function () {
+                                var reader = new FileReader();
+                                reader.onload = function (e) {
+                                    document.getElementById("show_image_src").src = e.target.result;
+                                };
+                                reader.readAsDataURL(this.files[0]);
+                            };    
+                            /*input file*/
+                            $("form").on("change", ".file-upload-field", function(){ 
+                                $(this).parent(".file-upload-wrapper").attr("data-text", $(this).val().replace(/.*(\/|\\)/, '') ).addClass("added");
+                                //$('#show_image_src').removeClass('hidden');
+                            });
+                            </script>
                         </div>
 
                         <div class="field">
                             <label>ID Card :</label>
-                            <div class="ui right action left icon input">
-                                <i class="id card outline icon"></i>
-                                <input type="file" placeholder="Click to Upload file">
+                            <div class="ui right action left icon input file-upload-wrapper" data-text="Click to Upload file">
+                            <i class="id card outline icon"></i>
+                                <!-- <input class="" type="text" placeholder="Click to Upload file"> -->
+                                <input type="file" class="file-upload-field" id="upload_file1" name="upload_file1" accept="image/*" placeholder="Click to Upload file">
+                                <label class="hid" for="upload_file1">Click to Upload file</label>
+                                <img class="hidden" id="show_image_src" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" />
                                 <div class="ui basic label button"><i class="trash alternate outline icon"></i></div>
                                 <!-- <div class="ui basic floating dropdown button" tabindex="0">
                                     <i class="trash alternate outline icon"></i>
@@ -1208,9 +1221,12 @@
 
                         <div class="field">
                             <label>Transcript :</label>
-                            <div class="ui right action left icon input">
-                                <i class="file alternate outline icon"></i>
-                                <input type="file" placeholder="Click to Upload file">
+                            <div class="ui right action left icon input file-upload-wrapper" data-text="Click to Upload file">
+                            <i class="file alternate outline icon"></i>
+                                <!-- <input class="" type="text" placeholder="Click to Upload file"> -->
+                                <input type="file" class="file-upload-field" id="upload_file1" name="upload_file1" accept="image/*" placeholder="Click to Upload file">
+                                <label class="hid" for="upload_file1">Click to Upload file</label>
+                                <img class="hidden" id="show_image_src" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" />
                                 <div class="ui basic label button"><i class="trash alternate outline icon"></i></div>
                                 <!-- <div class="ui basic floating dropdown button" tabindex="0">
                                     <i class="trash alternate outline icon"></i>
