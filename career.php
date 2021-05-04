@@ -12,7 +12,7 @@
         <!-- section-body -->
         <section class="section section-career">
         <div class="banner-top">
-            <div class="row reverse _chd-cl-xs-12-md-04">
+            <div class="ui container d-flex justify-content-start align-items-end">
                 <div class="_self-cl-xs-12-md-08-pd0 center-xs end-md cover parallax-window" style="min-height: 50vh" data-parallax="scroll" data-image-src="./assets/imgs/bg-career.jpg"><!--span class="visible-xs visible-sm wow fadeIn" data-wow-delay="0.5s"><img src="di/banner-register.jpg" alt="หากท่านต้องการสร้างผลงานกับเรา?"></span--></div>
 
                 <div class="wrap">
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="ui container">
-            <div class="search-box">
+            <div class="search-box p-4">
                 <div class="ui grid">
                     <div class="twelve wide column">
                         <div class="ui left icon input col p-0">
@@ -95,11 +95,11 @@
 
             <div class="list-jobs">
                 <!-- box1 -->
-                <div class="bx p-4">
+                <div class="bx bg-white p-4 mb-4">
                     <div class="ui grid">
                         <div class="twelve wide column">
                             <h2>ผู้ช่วยผู้จัดการ ฝ่ายปฏิบัติการประกันภัยหรือประกันชีวิต</h2>
-                            <div class="ui grid">
+                            <div class="info ui grid">
                                 <div class="six wide column">
                                     <div class="location"><i class="map marker alternate icon"></i> สำนักงานใหญ่ The nine</div>
                                 </div>
@@ -115,11 +115,11 @@
                     </div>
                 </div>
                 <!-- box2 -->
-                <div class="bx p-4">
+                <div class="bx bg-white p-4 mb-4">
                     <div class="ui grid">
                         <div class="twelve wide column">
                             <h2>เจ้าหน้าที่ส่วนพัฒนาผลิตภัณฑ์ประกันภัยทั่วไป</h2>
-                            <div class="ui grid">
+                            <div class="info ui grid">
                                 <div class="six wide column">
                                     <div class="location"><i class="map marker alternate icon"></i> สาขาเชียใหม่ </div>
                                 </div>
@@ -135,11 +135,11 @@
                     </div>
                 </div>
                 <!-- box3 -->
-                <div class="bx p-4">
+                <div class="bx bg-white p-4 mb-4">
                     <div class="ui grid">
                         <div class="twelve wide column">
                             <h2>เจ้าหน้าที่บริหารความเสี่ยงด้านรับประกันภัย</h2>
-                            <div class="ui grid">
+                            <div class="info ui grid">
                                 <div class="six wide column">
                                     <div class="location"><i class="map marker alternate icon"></i> สำนักงานใหญ่ The nine</div>
                                 </div>
@@ -155,11 +155,11 @@
                     </div>
                 </div>
                 <!-- box4 -->
-                <div class="bx p-4">
+                <div class="bx bg-white p-4 mb-4">
                     <div class="ui grid">
                         <div class="twelve wide column">
                             <h2>Telesales</h2>
-                            <div class="ui grid">
+                            <div class="info ui grid">
                                 <div class="six wide column">
                                     <div class="location"><i class="map marker alternate icon"></i> สำนักงานใหญ่ The nine</div>
                                 </div>
