@@ -31,7 +31,7 @@ a:focus,a:hover{text-decoration:none}
 img{max-width:100%}
 fieldset{border:none;margin:0;padding:0}
 address{font-style:normal}
-.section .f-kanda{font-family: "Conv_PSL Kanda Extra Regular"; font-size: 180%;}
+.section .f-kanda{font-family: "Conv_PSL Kanda Extra Regular"; font-size: 180%; letter-spacing: .5px;}
 .section .f-bold{font-family: "Conv_PSL Kanda Bold"; font-weight: 700; font-size: 180%;}
 .t-orange{color: var(--primary)!important;}
 .t-green{color: var(--green)!important;}
@@ -52,6 +52,7 @@ address{font-style:normal}
 .ui.styled.accordion .active.title{color: var(--text-color);}
 .ui.styled.accordion, .ui.styled.accordion .accordion{background: none; box-shadow: none;-webkit-box-shadow:none}
 .footer-form .ui.button,.footer-form .ui.basic.button,.ui.button.style{ border-radius: 10px 0px;-webkit-border-radius: 10px 0px}
+.footer-form .ui.button,.ui.button.style{box-shadow:0px 3px 10px rgba(222, 85, 6, 0.4)}
 .ui.basic.button.bordered{ border: 2px dashed #D8D5D5; box-shadow:none;-webkit-box-shadow: none; padding: 15px;}
 .ui.primary.button, .ui.primary.buttons .button{background-color: var(--primary);}
 .ui.primary.button.disabled, .ui.primary.buttons .button.disabled{background-color: #DCDCDC;}
@@ -90,9 +91,13 @@ address{font-style:normal}
 [class*="section-career"] .search-box{}
 .parallax-mirror{width:100vw!important;left:0!important}
 .parallax-mirror img{left:0!important;width:100%!important;object-fit:cover}
+.banner-top .parallax-window{min-height: 50vh;}
+.banner-top .title h1{font-size: 500%;}
+.banner-top .title p{font-size: 200%;font-family: "Conv_PSL Kanda Extra Regular";letter-spacing: 1px;}
+[class*="section-career"] .ui.dropdown > .text{font-size: 18px;}
 .list-jobs .bx{border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,.15);}
 .list-jobs .bx h2{font-weight: 400; font-family: "Conv_PSL Kanda Bold";font-size: 180%;}
-.list-jobs .bx .info{ font-size: 120%; color: var(--text-gray);}
+.list-jobs .bx .info{ font-size:18px; color: var(--text-gray);}
 /*responsive*/
 @media (min-width:1024px){.full-width{margin-left:calc(-100vw / 2 + 980px / 2 + 10px);margin-right:calc(-100vw / 2 + 980px / 2 + 10px)}
 }
@@ -119,6 +124,9 @@ address{font-style:normal}
 @media (max-width:991px){
 [class*="form-career"] .accordion > .title{padding-right: 50px;}
 [class*="form-career"] .title .icon{ top: 40px; right: 20px;}
+.banner-top{margin-bottom: 20px;}
+.banner-top .container{ min-height: 40vh;}
+.banner-top .parallax-window{position: absolute; width: 100vw; height: 40vh; left: 0;top: 0; z-index: -1;}
 /**/
 /* [class*=table-drag]{border-radius:0;-webkit-border-radius:0;position:relative;max-width:100vw;overflow-x:scroll!important;-webkit-overflow-scrolling:touch}
 [class*=table-drag]:after{content:"";display:block;width:48px;height:48px;background:url(../imgs/icon-drag.png) 50% 50% no-repeat #a0a0a0;background-size:85% auto;border-radius:100%;-webkit-border-radius:100%;position:absolute;left:50%;top:50%;margin:-20px 0 0 -24px;opacity:.65}
@@ -141,6 +149,8 @@ address{font-style:normal}
 .ui.container.section-career{margin: 0!important;}
 [class*="form-career"] .ui.form:not(.unstackable) .fields:not(.unstackable) > .field,.ui.form>.field,.ui.form fieldset>.field{margin-bottom: 1.5rem;}[class*="form-career"] .ui.form .fields,[class*="form-career"] .ui.form:not(.unstackable) .fields.inline > .field,.ui.form>.field,.ui.form fieldset>.field{margin-bottom: 0;}
 [class*="form-career"] .ui.form fieldset>.field textarea{height:auto;}
+.banner-top .title h1{font-size: 350%;}
+.banner-top .title p{font-size: 120%;}
 }
 @media (max-width:567px){
 body{overflow-x: hidden;}
