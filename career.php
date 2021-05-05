@@ -117,63 +117,66 @@
                 <!-- box2 -->
                 <div class="bx bg-white p-4 mb-4">
                     <div class="ui grid">
-                        <div class="twelve wide column">
+                        <div class="twelve wide computer sixteen wide mobile column">
                             <h2>เจ้าหน้าที่ส่วนพัฒนาผลิตภัณฑ์ประกันภัยทั่วไป</h2>
                             <div class="info ui grid">
-                                <div class="six wide column">
-                                    <div class="location"><i class="map marker alternate icon"></i> สาขาเชียใหม่ </div>
+                                <div class="six wide computer sixteen wide mobile column pt-4 pb-0 pb-lg-2">
+                                    <div class="location"><i class="map marker alternate icon"></i> สาขาเชียใหม่</div>
                                 </div>
-                                <div class="six wide column">
-                                    <div class="depart">สังกัดสายงาน: Product Management</div>
+                                <div class="six wide computer sixteen wide mobile column pt-0 pt-lg-4 pb-0 pb-lg-2">
+                                    <div class="depart">สังกัดสายงาน: Operation Support</div>
                                 </div>
-                                <div class="four wide column">
+                                <div class="four wide computer sixteen wide mobile column pt-0 pt-lg-4 pb-0 pb-lg-2">
                                     <div class="date">12/02/2021</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="four wide column"><a href="career-detail.php" class="ui primary button text-nowrap btn-block style col">ดูรายละเอียด</a></div>
+                        <div class="four wide computer ten wide mobile column"><a href="career-detail.php" class="ui primary button text-nowrap btn-block style col">ดูรายละเอียด</a></div>
                     </div>
                 </div>
+                
                 <!-- box3 -->
                 <div class="bx bg-white p-4 mb-4">
                     <div class="ui grid">
-                        <div class="twelve wide column">
+                        <div class="twelve wide computer sixteen wide mobile column">
                             <h2>เจ้าหน้าที่บริหารความเสี่ยงด้านรับประกันภัย</h2>
                             <div class="info ui grid">
-                                <div class="six wide column">
+                                <div class="six wide computer sixteen wide mobile column pt-4 pb-0 pb-lg-2">
                                     <div class="location"><i class="map marker alternate icon"></i> สำนักงานใหญ่ The nine</div>
                                 </div>
-                                <div class="six wide column">
+                                <div class="six wide computer sixteen wide mobile column pt-0 pt-lg-4 pb-0 pb-lg-2">
                                     <div class="depart">สังกัดสายงาน: Operation Support</div>
                                 </div>
-                                <div class="four wide column">
+                                <div class="four wide computer sixteen wide mobile column pt-0 pt-lg-4 pb-0 pb-lg-2">
                                     <div class="date">12/02/2021</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="four wide column"><a href="career-detail.php" class="ui primary button text-nowrap btn-block style col">ดูรายละเอียด</a></div>
+                        <div class="four wide computer ten wide mobile column"><a href="career-detail.php" class="ui primary button text-nowrap btn-block style col">ดูรายละเอียด</a></div>
                     </div>
                 </div>
+                
                 <!-- box4 -->
                 <div class="bx bg-white p-4 mb-4">
                     <div class="ui grid">
-                        <div class="twelve wide column">
+                        <div class="twelve wide computer sixteen wide mobile column">
                             <h2>Telesales</h2>
                             <div class="info ui grid">
-                                <div class="six wide column">
+                                <div class="six wide computer sixteen wide mobile column pt-4 pb-0 pb-lg-2">
                                     <div class="location"><i class="map marker alternate icon"></i> สำนักงานใหญ่ The nine</div>
                                 </div>
-                                <div class="six wide column">
+                                <div class="six wide computer sixteen wide mobile column pt-0 pt-lg-4 pb-0 pb-lg-2">
                                     <div class="depart">สังกัดสายงาน: Operation Support</div>
                                 </div>
-                                <div class="four wide column">
+                                <div class="four wide computer sixteen wide mobile column pt-0 pt-lg-4 pb-0 pb-lg-2">
                                     <div class="date">12/02/2021</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="four wide column"><a href="career-detail.php" class="ui primary button text-nowrap btn-block style col">ดูรายละเอียด</a></div>
+                        <div class="four wide computer ten wide mobile column"><a href="career-detail.php" class="ui primary button text-nowrap btn-block style col">ดูรายละเอียด</a></div>
                     </div>
                 </div>
+                
             </div>
 
         </div>
