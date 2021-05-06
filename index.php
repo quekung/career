@@ -73,7 +73,7 @@
 ต่างๆ เพื่อบรรลุจุดหมายเดียวกันในการนำเสนอประกันภัยและบริการที่ดีที่สุด
 เพื่อให้ธนชาตประกันภัยเป็นส่วนสำคัญส่วนหนึ่งในทุกช่วงชีวิตของลูกค้า</p>
 						<div class="ctrl-btn ui two column stackable grid">
-							<div class="column"><a href="career-detail.php" class="ui primary button text-nowrap btn-block style col">ดูรายละเอียด</a></div>
+							<div class="column"><a href="detail.php" class="ui primary button text-nowrap btn-block style col">ดูรายละเอียด</a></div>
 						</div>
 					</div>
 				</div>
@@ -86,7 +86,7 @@
 						<h3 class="title f-kanda t-orange mt-n4 mt-sm-0">​​​​#ความเป็นไปได้ ในการใช้ชีวิต</h3>
 						<p class="desc">ที่ธนชาตประกันภัยเราผสมผสานเทคโนโลยี และบรรยากาศที่เอื้อ ต่อการทำงานที่ตอบโจทย์ทุกไลฟ์สไตล์ เพื่อส่งเสริมการสร้างสรรค์ นวัตกรรมอย่างไม่มีที่สิ้นสุด ตอบรับทุกความต้องการที่อาจเป็นไปได้ ในอนาคต</p>
 						<div class="ctrl-btn ui two column stackable grid">
-							<div class="column"><a href="career-detail.php" class="ui primary button text-nowrap btn-block style col">ดูรายละเอียด</a></div>
+							<div class="column"><a href="detail.php" class="ui primary button text-nowrap btn-block style col">ดูรายละเอียด</a></div>
 						</div>
 					</div>
 				</div>
@@ -101,7 +101,7 @@
 ซึ่งกันและกัน เพื่อให้ทุกคนเติบโตสู่การเป็นบุคลากรชั้นนำ ผ่านโปรแกรมการ
 พัฒนาบุคลากร และกระบวนการสร้างความเป็นผู้นำที่ธนชาตประกันภัย มอบให้</p>
 						<div class="ctrl-btn ui two column stackable grid">
-							<div class="column"><a href="career-detail.php" class="ui primary button text-nowrap btn-block style col">ดูรายละเอียด</a></div>
+							<div class="column"><a href="detail.php" class="ui primary button text-nowrap btn-block style col">ดูรายละเอียด</a></div>
 						</div>
 					</div>
 				</div>
@@ -114,7 +114,7 @@
 						<h3 class="title f-kanda t-orange mt-n4 mt-sm-0">​​​​#ความเป็นไปได้ ในการใช้ชีวิต</h3>
 						<p class="desc">ที่ธนชาตประกันภัยเราผสมผสานเทคโนโลยี และบรรยากาศที่เอื้อ ต่อการทำงานที่ตอบโจทย์ทุกไลฟ์สไตล์ เพื่อส่งเสริมการสร้างสรรค์ นวัตกรรมอย่างไม่มีที่สิ้นสุด ตอบรับทุกความต้องการที่อาจเป็นไปได้ ในอนาคต</p>
 						<div class="ctrl-btn ui two column stackable grid">
-							<div class="column"><a href="career-detail.php" class="ui primary button text-nowrap btn-block style col">ดูรายละเอียด</a></div>
+							<div class="column"><a href="detail.php" class="ui primary button text-nowrap btn-block style col">ดูรายละเอียด</a></div>
 						</div>
 					</div>
 				</div>

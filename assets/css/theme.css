@@ -54,7 +54,9 @@ address{font-style:normal}
 .footer-form .ui.button,.footer-form .ui.basic.button,.ui.button.style{ border-radius: 10px 0px;-webkit-border-radius: 10px 0px}
 .footer-form .ui.button,.ui.button.style{box-shadow:0px 3px 10px rgba(222, 85, 6, 0.4)}
 .ui.basic.button.bordered{ border: 2px dashed #D8D5D5; box-shadow:none;-webkit-box-shadow: none; padding: 15px;}
+.ui.primary.button, .ui.primary.buttons .button,.ui.basic.primary.button,.footer-form .ui.basic.button{font-family: "Conv_PSL Kanda Extra Regular"; font-size: 160%; line-height:100%; letter-spacing: .5px;padding-top:7px; padding-bottom: 7px;}
 .ui.primary.button, .ui.primary.buttons .button{background-color: var(--primary);}
+.ui.basic.primary.button{box-shadow: 0 0 0 1px var(--primary) inset !important;  color:var(--primary) !important;}
 .ui.primary.button.disabled, .ui.primary.buttons .button.disabled{background-color: #DCDCDC;}
 .ui.primary.button:hover{background-color: var(--black);}
 .ui.form input:not([type]), .ui.form input[type="date"], .ui.form input[type="datetime-local"], .ui.form input[type="email"], .ui.form input[type="file"], .ui.form input[type="number"], .ui.form input[type="password"], .ui.form input[type="search"], .ui.form input[type="tel"], .ui.form input[type="text"], .ui.form input[type="time"], .ui.form input[type="url"],.ui.form textarea{background-color: #fcfcfd;}
@@ -100,7 +102,8 @@ address{font-style:normal}
 .list-jobs .bx h2{font-weight: 400; font-family: "Conv_PSL Kanda Bold";font-size: 180%;}
 .list-jobs .bx .info{ font-size:18px; color: var(--text-gray);}
 /*Home*/
-[class*="section-career-home"] .banner-top .parallax-window{min-height: 80vh;}
+[class*="section-career-home"] .banner-top .parallax-window{height: 80vh;max-height: 600px;}
+[class*="section-career-home"] .banner-top .wrap{font-size: 16px;}
 [class*="section-career-home"] .banner-top .logo{position: relative;}
 [class*="section-career-home"] .banner-top .logo::before,[class*="section-career-home"] .banner-top .logo::after{content: "";display: block; position: absolute; top: -50%; left:8%; width: 63px; height: 94px; background: url(../imgs/line-head-text.png) 50% 50% no-repeat; background-size: contain; max-width: 5vw;}
 [class*="section-career-home"] .banner-top .logo::before{top: auto; left: auto; bottom: -50%;right:15%; background-image: url(../imgs/line-45deg.png); transform: scale(.5);}
@@ -112,6 +115,11 @@ address{font-style:normal}
 .wrap-list-presents:after{background-color: #fff; border-radius: 50% 0 0 0; z-index: 1;}
 .wrap-list-presents>*{position: relative; z-index: 2;}
 .wrap-list-presents figure img{ border-radius: 3rem 0;}
+/*detail*/
+.read-body *{font-family: "Sarabun";}
+.reader .head-title{padding-left: 30px; position: relative; font-size: 250%; color: var(--black);}
+.reader .head-title::before{content: ""; display: block; position: absolute; top: -20px; left: 0; width: 35px; height: 35px; background: url(../imgs/line-45deg.png) 50% 50% no-repeat; background-size: auto 100%;}
+.read-body h1,.read-body h2,.read-body h3,.read-body h4, .read-body h5,.read-body h6{margin-bottom: 10px;}
 /*responsive*/
 @media (min-width:1024px){.full-width{margin-left:calc(-100vw / 2 + 980px / 2 + 10px);margin-right:calc(-100vw / 2 + 980px / 2 + 10px)}
 }
@@ -167,7 +175,10 @@ address{font-style:normal}
 .banner-top .title p{font-size: 120%;}
 [class*="section-career-home"] .banner-top{margin-bottom: 0;}
 [class*="section-career-home"] .banner-top .container{ height: calc(100vh - 77.5px) ;}
-[class*="section-career-home"] .banner-top .parallax-window{height: 100vh;}
+[class*="section-career-home"] .banner-top .logo img{height: auto!important;}
+[class*="section-career-home"] .banner-top .logo::after{left: -15px;}
+[class*="section-career-home"] .banner-top .logo::before{transform: scale(.8);}
+[class*="section-career-home"] .banner-top .parallax-window{height: 100vh; max-height: inherit;}
 
 }
 @media (max-width:567px){
