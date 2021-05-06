@@ -11,6 +11,15 @@
 		<!-- section-header -->
         <!-- section-body -->
         <section class="section section-career">
+        <div class="ui container">
+            <div class="ui tiny breadcrumb p-4">
+                <a class="section">หน้าแรก</a>
+                <i class="right chevron icon divider"></i>
+                <!-- <a class="section">Registration</a>
+                <i class="right chevron icon divider"></i> -->
+                <div class="active section">ประกาศรับสมัครงาน</div>
+            </div>
+        </div>
         <div class="banner-top">
             <div class="ui container d-flex justify-content-start align-items-end">
                 <div class="_self-cl-xs-12-md-08-pd0 center-xs end-md cover parallax-window" data-parallax="scroll" data-image-src="./assets/imgs/bg-career.jpg"><!--span class="visible-xs visible-sm"><img src="./assets/imgs/bg-career.jpg" alt="หากท่านต้องการสร้างผลงานกับเรา?"></span--></div>

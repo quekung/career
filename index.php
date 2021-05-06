@@ -99,7 +99,7 @@
 						<h3 class="title f-kanda t-orange mt-n4 mt-sm-0">#ความเป็นไปได้ ในการเติบโต</h3>
 						<p class="desc">ทุกคนจะได้รับโอกาสในการเรียนรู้ และถ่ายทอดความรู้ ตลอดจนช่วยเหลือ
 ซึ่งกันและกัน เพื่อให้ทุกคนเติบโตสู่การเป็นบุคลากรชั้นนำ ผ่านโปรแกรมการ
-พัฒนาบุคลากร และกระบวนการสร้างความเป็นผู้นำที่ธนชาตประกันภัย มอบให้</p>
+พัฒนาบุคลากร และกระบวนการสร้างความเป็นผู้นำที่ธนชาตประกันภัยมอบให้</p>
 						<div class="ctrl-btn ui two column stackable grid">
 							<div class="column"><a href="detail.php" class="ui primary button text-nowrap btn-block style col">ดูรายละเอียด</a></div>
 						</div>

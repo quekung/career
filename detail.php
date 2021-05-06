@@ -11,6 +11,15 @@
 		<!-- section-header -->
         <!-- section-body -->
         <section class="section section-career">
+        <div class="ui container">
+            <div class="ui tiny breadcrumb p-4">
+                <a class="section">หน้าแรก</a>
+                <i class="right chevron icon divider"></i>
+                <a class="section">บทความ</a>
+                <i class="right chevron icon divider"></i>
+                <div class="active section">เตรียมตัวสมัครงานอย่างไรให้ได้งาน หลัง COVID-19</div>
+            </div>
+        </div>
         <div class="banner-top">
             <div class="ui container d-flex justify-content-start align-items-end">
                 <div class="_self-cl-xs-12-md-08-pd0 center-xs end-md cover parallax-window" data-parallax="scroll" data-image-src="./assets/imgs/bg-blog.jpg"></div>

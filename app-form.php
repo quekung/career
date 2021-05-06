@@ -12,7 +12,7 @@
         <!-- section-body -->
         
         <section class="section section-career ui container">
-        <div class="ui tiny breadcrumb p-2 mb-sm-4">
+        <div class="ui tiny breadcrumb p-4">
             <a class="section">หน้าแรก</a>
             <i class="right chevron icon divider"></i>
             <!-- <a class="section">Registration</a>
