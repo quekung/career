@@ -17,7 +17,7 @@
 
 					<div class="wrap col-12 col-sm-10 col-md-8 col-xl-6 mt-5 p-0">
 						<div class="title">
-							<h1 class="logo d-flex justify-content-center col-12"><img src="./assets/imgs/head-text-career.png" height="110"><span class="hidden" hidden>THANACHART CAREER</span></h1>
+							<h1 class="logo d-flex justify-content-center col-12"><img src="./assets/imgs/head-text-career-line.png" height="180"><span class="hidden" hidden>THANACHART CAREER</span></h1>
 							<div class="ctrl-btn d-flex justify-content-center mt-5"><a href="career.php" class="ui primary button text-nowrap btn-block style col-10 col-md-6 large">เป็นส่วนหนึ่งกับเรา</a></div>
 						</div>
 					</div>
@@ -32,28 +32,28 @@
 						<div class="ps1 d-flex flex-wrap justify-content-center text-center">
 						<i class="img col-12"><img src="./assets/imgs/ic-work1.png" height="100"></i>
 						<div class="title col-12 t-orange f-kanda">#Work</div>
-						<p class="text-center text-md-left">ร่วมเป็นส่วนหนึ่งของทีมสุดยอดผู้เชี่ยวชาญ <br>ที่จะทำให้ทุกความเป็นไปได้ในโลกดิจิทัลแบงค์กิ้ง<br>เป็นจริง</p>
+						<p class="desc text-center text-md-left">ร่วมเป็นส่วนหนึ่งของทีมสุดยอดผู้เชี่ยวชาญ จะทำให้ทุกความเป็นไปได้ในโลกดิจิทัลแบงค์กิ้งเป็นจริง</p>
 						</div>
 					</div>
 					<div class="column">
 						<div class="ps1 d-flex flex-wrap justify-content-center text-center">
 						<i class="img col-12"><img src="./assets/imgs/ic-work2.png" height="100"></i>
 						<div class="title col-12 t-orange f-kanda">#Work</div>
-						<p class="desc text-center text-md-left">ร่วมเป็นส่วนหนึ่งของทีมสุดยอดผู้เชี่ยวชาญ <br>ที่จะทำให้ทุกความเป็นไปได้ในโลกดิจิทัลแบงค์กิ้ง<br>เป็นจริง</p>
+						<p class="desc text-center text-md-left">ร่วมเป็นส่วนหนึ่งของทีมสุดยอดผู้เชี่ยวชาญ จะทำให้ทุกความเป็นไปได้ในโลกดิจิทัลแบงค์กิ้งเป็นจริง</p>
 						</div>
 					</div>
 					<div class="column">
 						<div class="ps1 d-flex flex-wrap justify-content-center text-center">
 						<i class="img col-12"><img src="./assets/imgs/ic-work3.png" height="100"></i>
 						<div class="title col-12 t-orange f-kanda">#Work</div>
-						<p class="desc text-center text-md-left">ร่วมเป็นส่วนหนึ่งของทีมสุดยอดผู้เชี่ยวชาญ <br>ที่จะทำให้ทุกความเป็นไปได้ในโลกดิจิทัลแบงค์กิ้ง<br>เป็นจริง</p>
+						<p class="desc text-center text-md-left">ร่วมเป็นส่วนหนึ่งของทีมสุดยอดผู้เชี่ยวชาญ จะทำให้ทุกความเป็นไปได้ในโลกดิจิทัลแบงค์กิ้งเป็นจริง</p>
 						</div>
 					</div>
 					<div class="column">
 						<div class="ps1 d-flex flex-wrap justify-content-center text-center">
 						<i class="img col-12"><img src="./assets/imgs/ic-work4.png" height="100"></i>
 						<div class="title col-12 t-orange f-kanda">#Work</div>
-						<p class="desc text-center text-md-left">ร่วมเป็นส่วนหนึ่งของทีมสุดยอดผู้เชี่ยวชาญ <br>ที่จะทำให้ทุกความเป็นไปได้ในโลกดิจิทัลแบงค์กิ้ง<br>เป็นจริง</p>
+						<p class="desc text-center text-md-left">ร่วมเป็นส่วนหนึ่งของทีมสุดยอดผู้เชี่ยวชาญ จะทำให้ทุกความเป็นไปได้ในโลกดิจิทัลแบงค์กิ้งเป็นจริง</p>
 						</div>
 					</div>
 					

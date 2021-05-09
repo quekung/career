@@ -21,7 +21,7 @@
                 </div>
             </div>
 
-            <div class="ui container bg-white">
+            <div class="ui container bg-white mb-4">
 
                 <div class="reader-job p-md-3">
                     <div class="ui grid">
@@ -89,6 +89,15 @@
                                     <li>สำเนาบัตรประชาชน</li>
                                     <li>เอกสารสำเนาวุฒิการศึกษา</li>
                                 </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ui grid d-flex justify-content-center ft-btn">
+                        <div class="five wide large six wide computer sixteen wide mobile column pt-4">
+                            <div class="ui two column stackable grid">
+                                <div class="column"><a href="app-form.php" class="ui primary button text-nowrap btn-block style col"> สมัครออนไลน์</a></div>
+                                <div class="column"><a href="detail.php" class="ui primary basic button text-nowrap btn-block style col"><i class="share alternate icon"></i> แชร์</a></div>
                             </div>
                         </div>
                     </div>
