@@ -52,7 +52,7 @@ address{font-style:normal}
 .ui.dropdown > .dropdown.icon{font-family: Icons;}
 .ui.styled.accordion .active.title{color: var(--text-color);}
 .ui.styled.accordion, .ui.styled.accordion .accordion{background: none; box-shadow: none;-webkit-box-shadow:none}
-.footer-form .ui.button,.footer-form .ui.basic.button,.ui.button.style{ border-radius: 10px 0px;-webkit-border-radius: 10px 0px}
+.footer-form .ui.button,.footer-form .ui.basic.button,.ui.button.style{ border-radius: 10px 0px 10px 0;-webkit-border-radius:10px 0 10px 0}
 .footer-form .ui.button,.ui.button.style{box-shadow:0px 3px 10px rgba(222, 85, 6, 0.4)}
 .ui.basic.button.bordered{ border: 2px dashed #D8D5D5; box-shadow:none;-webkit-box-shadow: none; padding: 15px;}
 .ui.primary.button, .ui.primary.buttons .button,.ui.basic.primary.button,.footer-form .ui.basic.button{font-family: "Conv_PSL Kanda Extra Regular"; font-size: 160%; line-height:100%; letter-spacing: .5px;padding-top:7px; padding-bottom: 7px;}

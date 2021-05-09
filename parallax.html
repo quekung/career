@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parallax</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://pixelcog.github.io/parallax.js/js/parallax.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script> -->
+</head>
+<body style="background-color: #eaeaea;">
+<div style="min-height:200vh;">
+    <div class="banner-top">
+        <div class="ui container d-flex justify-content-start align-items-end">
+            <div class="_self-cl-xs-12-md-08-pd0 center-xs end-md cover parallax-window" data-parallax="scroll" data-image-src="./assets/imgs/bg-career.jpg" style="min-height: 50vh;"></div>
+
+            <div class="wrap mb-5">
+                <div class="title">
+                    <h1 class="t-orange f-kanda">#WORK</h1>
+                    <p class="t-white">ร่วมเป็นส่วนหนึ่งของทีมสุดยอดผู้เชี่ยวชาญ <br>ที่จะทำให้ทุกความเป็นไปได้ในโลกดิจิทัลแบงค์กิ้งเป็นจริง</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.parallax-window').parallax();
+        });
+        </script>
+</body>
+</html>
